@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _Presentación
 {
-    public partial class Form1 : Form
+    public partial class CodigoQR : Form
     {
-        public Form1()
+        public CodigoQR()
         {
             InitializeComponent();
         }
