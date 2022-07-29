@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Lógica
 {
-    class ClienteService
+    public class ClienteService
     {
         ClienteRepository clienteRepository;
         ConnectionManager connectionManager;
@@ -72,14 +72,13 @@ namespace Lógica
 
         public string ModificarCliente(Cliente clienteNuevo, int identificacion)
         {
-
             try
             {
                 connectionManager.Open();
 
                 if (clienteRepository.BuscarClientePorIdentificacion(identificacion) != null)
                 {
-                    clienteRepository.ModificarDocente(clienteNuevo, identificacion);
+                    clienteRepository.ModificarCliente(clienteNuevo, identificacion);
                     return $"Se modificó el cliente con la identificacion {identificacion}";
                 }
                 return $"No se encontró el cliente con identificacion {identificacion}";
@@ -93,8 +92,42 @@ namespace Lógica
             {
                 connectionManager.Close();
             }
-
-
         }
+        public ConsultaReponseCliente ConsultarClientes(int identificacion)
+        {
+            try
+            {
+                connectionManager.Open();
+
+                return new ConsultaReponseCliente(clienteRepository.ConsultarClientes(identificacion));
+            }
+            catch (Exception exception)
+            {
+                return new ConsultaReponseCliente("Se presentó el siguiente error: " + exception.Message);
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+    }
+    public class ConsultaReponseCliente
+    {
+        public List<Cliente> Clientes { get; set; }
+        public string Mensaje { get; set; }
+        public bool Error { get; set; }
+
+        public ConsultaReponseCliente(List<Cliente> clientes)
+        {
+            Clientes = clientes;
+            Error = false;
+        }
+
+        public ConsultaReponseCliente(string mensaje)
+        {
+            Mensaje = mensaje;
+            Error = true;
+        }
+
     }
 }
