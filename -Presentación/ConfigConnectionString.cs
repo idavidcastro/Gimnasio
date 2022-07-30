@@ -10,6 +10,6 @@ namespace _Presentación
 {
     public static class ConfigConnectionString
     {
-        public static string Cadena = ConfigurationManager.ConnectionStrings["cadenaproyecto"].ConnectionString;
+        public static string Cadena = ConfigurationManager.ConnectionStrings["cadena"].ConnectionString;
     }
 }

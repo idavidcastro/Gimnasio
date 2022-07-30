@@ -17,8 +17,24 @@ namespace _Presentación
         {
 
             InitializeComponent();
-         
+            Entrada entrada = new Entrada();
+            MostrarFormulario(entrada);
+            
+
         }
+
+        public void MostrarFormulario(Form formulario)
+        {
+            if (panel4.Controls.Count > 0)
+            {
+                panel4.Controls.RemoveAt(0);
+            }
+
+            formulario.TopLevel = false;
+            this.panel4.Controls.Add(formulario);
+            formulario.Show();
+        }
+
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]

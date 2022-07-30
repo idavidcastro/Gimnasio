@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entidad;
+using Lógica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,19 @@ namespace _Presentación
 {
     public partial class Tipos_de_plancs : Form
     {
+        Plan plan;
+        PlanService planService;
         public Tipos_de_plancs()
         {
             InitializeComponent();
+            planService = new PlanService(ConfigConnectionString.Cadena);
+            CargarListado();
+        }
+        public void CargarListado()
+        {
+            var respuesta = planService.ConsultarListPlanes();
+            pruebaa.DataSource = respuesta;
+            //dataPanes.DataSource = respuesta;
         }
 
         private void btnguardar_Click(object sender, EventArgs e)
@@ -27,6 +39,7 @@ namespace _Presentación
                 MessageBox.Show("Debe ingresar un valor ...!!!!");
 
             else
+            /*
             {
                 //capturando datos//
                 string codigo = txtcodigo.Text;
@@ -41,6 +54,20 @@ namespace _Presentación
                 dataGridView1[2, cantfilas].Value = txtvalor.Text;
 
             }
+            */
+            plan = new Plan
+            {
+                CodigoPlan = txtcodigo.Text,
+                NombrePlan= txtplan.Text,
+                ValorPlan= decimal.Parse(txtvalor.Text)
+            };
+            string mensaje = planService.GuardarPlan(plan);
+            MessageBox.Show(mensaje, "Guardar plan", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

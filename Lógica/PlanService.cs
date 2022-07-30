@@ -93,6 +93,25 @@ namespace Lógica
                 connectionManager.Close();
             }
         }
+        public List<Plan> ConsultarListPlanes()
+        {
+            List<Plan> planes = new List<Plan>();
+
+            try
+            {
+                connectionManager.Open();
+                planes = planRepository.ConsultarListPlanes();
+            }
+            catch (Exception exception)
+            {
+
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+            return planes;
+        }
         public ConsultaReponsePlan ConsultarPlanes(string codigo)
         {
             try

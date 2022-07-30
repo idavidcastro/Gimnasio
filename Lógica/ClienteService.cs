@@ -93,6 +93,25 @@ namespace Lógica
                 connectionManager.Close();
             }
         }
+        public List<Cliente> ConsultarListClientes()
+        {
+            List<Cliente> clientes = new List<Cliente>();
+
+            try
+            {
+                connectionManager.Open();
+                clientes = clienteRepository.ConsultarListClientes();
+            }
+            catch (Exception exception)
+            {
+
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+            return clientes;
+        }
         public ConsultaReponseCliente ConsultarClientes(int identificacion)
         {
             try

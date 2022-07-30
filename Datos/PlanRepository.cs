@@ -38,7 +38,7 @@ namespace Datos
             using (var command = _connection.CreateCommand())
             {
 
-                command.CommandText = "select *from Plan where CodigoPlan=@CodigoPlan";
+                command.CommandText = "select *from Plann where CodigoPlan=@CodigoPlan";
                 command.Parameters.Add(new SqlParameter("@CodigoPlan", codigo));
                 var reader = command.ExecuteReader();
                 if (reader.HasRows)
@@ -63,7 +63,7 @@ namespace Datos
         {
             using (var command = _connection.CreateCommand())
             {
-                command.CommandText = "delete From Plan where CodigoPlan=@CodigoPlan";
+                command.CommandText = "delete From Plann where CodigoPlan=@CodigoPlan";
                 command.Parameters.Add(new SqlParameter("@CodigoPlan", codigo));
                 command.ExecuteNonQuery();
             }
@@ -73,7 +73,7 @@ namespace Datos
         {
             using (var command = _connection.CreateCommand())
             {
-                command.CommandText = "update Plan set CodigoPlan=@CodigoPlan,Nombre=@Nombre,Valor=@Valor" +
+                command.CommandText = "update Plann set CodigoPlan=@CodigoPlan,Nombre=@Nombre,Valor=@Valor" +
                                      " where CodigoPlan=@CodigoPlan";
                 command.Parameters.Add(new SqlParameter("@CodigoPlan", codigo));
                 command.Parameters.Add(new SqlParameter("@Nombre", planNuevo.NombrePlan));
@@ -87,7 +87,7 @@ namespace Datos
             List<Plan> planes = new List<Plan>();
             using (var command = _connection.CreateCommand())
             {
-                command.CommandText = "select * from Plan where CodigoPlan=@CodigoPlan";
+                command.CommandText = "select * from Plann where CodigoPlan=@CodigoPlan";
                 command.Parameters.Add(new SqlParameter("@CodigoPlan", codigo));
                 var reader = command.ExecuteReader();
                 while (reader.Read())
@@ -105,6 +105,28 @@ namespace Datos
             }
 
             return planes;
+        }
+        public List<Plan> ConsultarListPlanes()
+        {
+            List<Plan> productos = new List<Plan>();
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "select * from Plann";
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Plan plan = new Plan
+                    {
+                        CodigoPlan = reader.GetString(0),
+                        NombrePlan = reader.GetString(1),
+                        ValorPlan = reader.GetDecimal(2),
+                    };
+                    productos.Add(plan);
+                }
+                reader.Close();
+            }
+
+            return productos;
         }
     }
 }

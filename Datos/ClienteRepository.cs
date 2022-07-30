@@ -144,5 +144,38 @@ namespace Datos
 
             return clientes;
         }
+        public List<Cliente> ConsultarListClientes()
+        {
+            List<Cliente> clientes = new List<Cliente>();
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "select * from Cliente";
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Cliente cliente = new Cliente
+                    {
+                        Identificacion = reader.GetInt32(0),
+                        Nombre = reader.GetString(1),
+                        Apellido = reader.GetString(2),
+                        Edad = reader.GetInt32(3),
+                        Sexo = reader.GetString(4),
+                        Direccion = reader.GetString(5),
+                        PlanCliente = new Plan
+                        {
+                            CodigoPlan = reader.GetString(6),
+                            NombrePlan = reader.GetString(7),
+                            ValorPlan = reader.GetDecimal(8)
+                        },
+                        FechaIngreso = reader.GetDateTime(9)
+                    };
+
+                    clientes.Add(cliente);
+                }
+                reader.Close();
+            }
+
+            return clientes;
+        }
     }
 }

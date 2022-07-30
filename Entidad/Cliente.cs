@@ -9,10 +9,6 @@ namespace Entidad
     
     public class Cliente
     {
-        public Cliente()
-        {
-
-        }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public int Identificacion { get; set; }
