@@ -66,7 +66,7 @@ namespace Datos
                                 NombrePlan = reader.GetString(7),
                                 ValorPlan = reader.GetDecimal(8)
                             },
-                            FechaIngreso = reader.GetDateTime(9)
+                            FechaIngreso = reader.GetString(9)
                         };
 
                         return cliente;
@@ -134,7 +134,7 @@ namespace Datos
                             NombrePlan = reader.GetString(7),
                             ValorPlan = reader.GetDecimal(8)
                         },
-                        FechaIngreso = reader.GetDateTime(9)
+                        FechaIngreso = reader.GetString(9)
                     };
 
                     clientes.Add(cliente);
@@ -146,6 +146,56 @@ namespace Datos
         }
         public List<Cliente> ConsultarListClientes()
         {
+            
+            List<Cliente> clientes = new List<Cliente>();
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "Select * from Cliente";
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Cliente cliente = new Cliente();
+
+                        cliente.Nombre = reader.GetString(1);
+                        cliente.Apellido = reader.GetString(2);
+                        cliente.Identificacion = int.Parse(reader.GetString(0));
+                        cliente.Edad = int.Parse(reader.GetString(3));
+                        cliente.Sexo = reader.GetString(4);
+                        cliente.Direccion = reader.GetString(5);
+                        cliente.PlanCliente = new Plan();
+                        cliente.PlanCliente.CodigoPlan = reader.GetString(6);
+                        cliente.PlanCliente.NombrePlan = reader.GetString(7);
+                        cliente.PlanCliente.ValorPlan = decimal.Parse(reader.GetString(8));
+                        cliente.FechaIngreso = reader.GetString(9);
+                        //cliente.PlanCliente = new Plan();
+                        /*
+                        Cliente cliente = new Cliente
+                        {
+                            Identificacion = reader.GetInt32(0),
+                            Nombre = reader.GetString(1),
+                            Apellido = reader.GetString(2),
+                            Edad = reader.GetInt32(3),
+                            Sexo = reader.GetString(4),
+                            Direccion = reader.GetString(5),
+                            PlanCliente = new Plan
+                            {
+                                CodigoPlan = reader.GetString(6),
+                                NombrePlan = reader.GetString(7),
+                                ValorPlan = reader.GetDecimal(8)
+                            },
+                            FechaIngreso = reader.GetString(9)
+                        };
+                        */
+                        clientes.Add(cliente);
+                    }
+                }
+            }
+            return clientes;
+
+
+            /*
             List<Cliente> clientes = new List<Cliente>();
             using (var command = _connection.CreateCommand())
             {
@@ -167,7 +217,7 @@ namespace Datos
                             NombrePlan = reader.GetString(7),
                             ValorPlan = reader.GetDecimal(8)
                         },
-                        FechaIngreso = reader.GetDateTime(9)
+                        FechaIngreso = reader.GetString(9)
                     };
 
                     clientes.Add(cliente);
@@ -176,6 +226,7 @@ namespace Datos
             }
 
             return clientes;
+            */
         }
     }
 }

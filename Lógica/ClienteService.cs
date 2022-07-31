@@ -104,7 +104,7 @@ namespace Lógica
             }
             catch (Exception exception)
             {
-
+                
             }
             finally
             {

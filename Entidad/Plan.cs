@@ -11,6 +11,6 @@ namespace Entidad
         public string CodigoPlan { get; set; }
         public string NombrePlan { get; set; }
         public decimal ValorPlan { get; set; }
-        public List<Cliente> Clientes { get; set; }
+        //public List<Cliente> Clientes { get; set; }
     }
 }

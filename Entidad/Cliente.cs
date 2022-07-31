@@ -16,7 +16,7 @@ namespace Entidad
         public string Sexo { get; set; }
         public string Direccion { get; set; }
         public Plan PlanCliente { get; set; }
-        public DateTime FechaIngreso { get; set; }
+        public string FechaIngreso { get; set; }
 
     }
 }

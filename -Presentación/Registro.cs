@@ -19,7 +19,7 @@ namespace _Presentación
         Cliente cliente;
         Plan plan;
         ClienteService clienteService;
-        
+        List<Cliente> clientes;
         public Registro()
         {
             InitializeComponent();
@@ -28,10 +28,11 @@ namespace _Presentación
             CargarListado();
         }
         public void CargarListado()
-        {  
-            var respuesta = clienteService.ConsultarListClientes();
-
-            dataRegistro.DataSource = respuesta;
+        {
+            clientes = new List<Cliente>();
+            clientes = clienteService.ConsultarListClientes();
+            //MessageBox.Show(clientes.ToString());
+            dataGridView777.DataSource = clientes;
         }
         
         private void MostrarPlanes()
@@ -118,18 +119,31 @@ namespace _Presentación
                 NombrePlan=txtnombreplan.Text,
                 ValorPlan=decimal.Parse(txtvalorplan.Text)
             };
+            
+            Cliente cliente = new Cliente();
+            cliente.Identificacion = int.Parse(txtidentificacion.Text);
+            cliente.Nombre = txtnombre.Text;
+            cliente.Apellido = txtapellido.Text;
+            cliente.Edad = int.Parse(txtedad.Text);
+            cliente.Sexo = cmbsexo.Text;
+            cliente.Direccion = txtdireccion.Text;
+            cliente.PlanCliente = plan;
+
+            cliente.FechaIngreso = lblfecha.Text;
+            /*
             cliente = new Cliente
             {
-                Identificacion = int.Parse(txtnombre.Text),
+                Identificacion = int.Parse(txtidentificacion.Text),
                 Nombre = txtnombre.Text,
                 Apellido = txtapellido.Text,
                 Edad = int.Parse(txtedad.Text),
                 Sexo = cmbsexo.Text,
                 Direccion = txtdireccion.Text,
                 PlanCliente = plan,
-                FechaIngreso = DateTime.ParseExact(lblfecha.Text,"dd/MM/yyyy", null)
+                
+                FechaIngreso = dateTimePicker1.Text
             };
-
+            */
             string mensaje = clienteService.GuardarCliente(cliente);
             MessageBox.Show(mensaje, "Guardar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -180,6 +194,11 @@ namespace _Presentación
 
             }
             cn.Close();
+        }
+
+        private void calendario_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
         }
     }
 }

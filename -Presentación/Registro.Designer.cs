@@ -29,9 +29,9 @@ namespace _Presentación
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registro));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,15 +58,17 @@ namespace _Presentación
             this.calendario = new System.Windows.Forms.MonthCalendar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtvalorplan = new System.Windows.Forms.TextBox();
+            this.txtnombreplan = new System.Windows.Forms.TextBox();
+            this.txtcodigoplan = new System.Windows.Forms.TextBox();
             this.cmbplan = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.txtcodigoplan = new System.Windows.Forms.TextBox();
-            this.txtnombreplan = new System.Windows.Forms.TextBox();
-            this.txtvalorplan = new System.Windows.Forms.TextBox();
+            this.dataGridView777 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataRegistro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView777)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -280,37 +282,37 @@ namespace _Presentación
             this.dataRegistro.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dataRegistro.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataRegistro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataRegistro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataRegistro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataRegistro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataRegistro.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataRegistro.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataRegistro.EnableHeadersVisualStyles = false;
             this.dataRegistro.GridColor = System.Drawing.Color.Navy;
             this.dataRegistro.Location = new System.Drawing.Point(73, 542);
             this.dataRegistro.Margin = new System.Windows.Forms.Padding(4);
             this.dataRegistro.Name = "dataRegistro";
             this.dataRegistro.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataRegistro.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataRegistro.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataRegistro.RowHeadersWidth = 51;
             this.dataRegistro.Size = new System.Drawing.Size(1256, 112);
             this.dataRegistro.TabIndex = 20;
@@ -346,6 +348,7 @@ namespace _Presentación
             this.calendario.Name = "calendario";
             this.calendario.TabIndex = 23;
             this.calendario.Visible = false;
+            this.calendario.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendario_DateChanged);
             // 
             // pictureBox1
             // 
@@ -393,6 +396,33 @@ namespace _Presentación
             this.panel1.Size = new System.Drawing.Size(1255, 373);
             this.panel1.TabIndex = 25;
             // 
+            // txtvalorplan
+            // 
+            this.txtvalorplan.Location = new System.Drawing.Point(13, 13);
+            this.txtvalorplan.Multiline = true;
+            this.txtvalorplan.Name = "txtvalorplan";
+            this.txtvalorplan.Size = new System.Drawing.Size(22, 31);
+            this.txtvalorplan.TabIndex = 30;
+            this.txtvalorplan.Visible = false;
+            // 
+            // txtnombreplan
+            // 
+            this.txtnombreplan.Location = new System.Drawing.Point(13, 13);
+            this.txtnombreplan.Multiline = true;
+            this.txtnombreplan.Name = "txtnombreplan";
+            this.txtnombreplan.Size = new System.Drawing.Size(22, 31);
+            this.txtnombreplan.TabIndex = 29;
+            this.txtnombreplan.Visible = false;
+            // 
+            // txtcodigoplan
+            // 
+            this.txtcodigoplan.Location = new System.Drawing.Point(13, 13);
+            this.txtcodigoplan.Multiline = true;
+            this.txtcodigoplan.Name = "txtcodigoplan";
+            this.txtcodigoplan.Size = new System.Drawing.Size(22, 31);
+            this.txtcodigoplan.TabIndex = 28;
+            this.txtcodigoplan.Visible = false;
+            // 
             // cmbplan
             // 
             this.cmbplan.FormattingEnabled = true;
@@ -431,32 +461,15 @@ namespace _Presentación
             this.button2.Text = "ELIMINAR";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // txtcodigoplan
+            // dataGridView777
             // 
-            this.txtcodigoplan.Location = new System.Drawing.Point(13, 13);
-            this.txtcodigoplan.Multiline = true;
-            this.txtcodigoplan.Name = "txtcodigoplan";
-            this.txtcodigoplan.Size = new System.Drawing.Size(22, 31);
-            this.txtcodigoplan.TabIndex = 28;
-            this.txtcodigoplan.Visible = false;
-            // 
-            // txtnombreplan
-            // 
-            this.txtnombreplan.Location = new System.Drawing.Point(13, 13);
-            this.txtnombreplan.Multiline = true;
-            this.txtnombreplan.Name = "txtnombreplan";
-            this.txtnombreplan.Size = new System.Drawing.Size(22, 31);
-            this.txtnombreplan.TabIndex = 29;
-            this.txtnombreplan.Visible = false;
-            // 
-            // txtvalorplan
-            // 
-            this.txtvalorplan.Location = new System.Drawing.Point(13, 13);
-            this.txtvalorplan.Multiline = true;
-            this.txtvalorplan.Name = "txtvalorplan";
-            this.txtvalorplan.Size = new System.Drawing.Size(22, 31);
-            this.txtvalorplan.TabIndex = 30;
-            this.txtvalorplan.Visible = false;
+            this.dataGridView777.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView777.Location = new System.Drawing.Point(174, 555);
+            this.dataGridView777.Name = "dataGridView777";
+            this.dataGridView777.RowHeadersWidth = 51;
+            this.dataGridView777.RowTemplate.Height = 24;
+            this.dataGridView777.Size = new System.Drawing.Size(667, 150);
+            this.dataGridView777.TabIndex = 28;
             // 
             // Registro
             // 
@@ -464,6 +477,7 @@ namespace _Presentación
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1467, 738);
+            this.Controls.Add(this.dataGridView777);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
@@ -480,6 +494,7 @@ namespace _Presentación
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView777)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -518,5 +533,6 @@ namespace _Presentación
         private System.Windows.Forms.TextBox txtvalorplan;
         private System.Windows.Forms.TextBox txtnombreplan;
         private System.Windows.Forms.TextBox txtcodigoplan;
+        private System.Windows.Forms.DataGridView dataGridView777;
     }
 }

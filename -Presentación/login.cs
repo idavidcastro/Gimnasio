@@ -103,7 +103,7 @@ namespace _Presentación
             bienvenida.ShowDialog();
             Form formulario = new Principal();
             formulario.Show();
-
+            this.Hide();
 
             if (txtuser.Text == "")
                 MessageBox.Show("Debe ingresar un Usuario ...!!!!");
