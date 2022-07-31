@@ -25,7 +25,8 @@ namespace _Presentación
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
+            this.Dispose();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
