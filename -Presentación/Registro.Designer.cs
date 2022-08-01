@@ -64,11 +64,9 @@ namespace _Presentación
             this.cmbplan = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView777 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataRegistro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView777)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -316,6 +314,7 @@ namespace _Presentación
             this.dataRegistro.RowHeadersWidth = 51;
             this.dataRegistro.Size = new System.Drawing.Size(1256, 112);
             this.dataRegistro.TabIndex = 20;
+            this.dataRegistro.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataRegistro_CellClick);
             this.dataRegistro.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // lblfecha
@@ -461,23 +460,12 @@ namespace _Presentación
             this.button2.Text = "ELIMINAR";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // dataGridView777
-            // 
-            this.dataGridView777.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView777.Location = new System.Drawing.Point(174, 555);
-            this.dataGridView777.Name = "dataGridView777";
-            this.dataGridView777.RowHeadersWidth = 51;
-            this.dataGridView777.RowTemplate.Height = 24;
-            this.dataGridView777.Size = new System.Drawing.Size(667, 150);
-            this.dataGridView777.TabIndex = 28;
-            // 
             // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1467, 738);
-            this.Controls.Add(this.dataGridView777);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
@@ -494,7 +482,6 @@ namespace _Presentación
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView777)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -533,6 +520,5 @@ namespace _Presentación
         private System.Windows.Forms.TextBox txtvalorplan;
         private System.Windows.Forms.TextBox txtnombreplan;
         private System.Windows.Forms.TextBox txtcodigoplan;
-        private System.Windows.Forms.DataGridView dataGridView777;
     }
 }

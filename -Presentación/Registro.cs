@@ -31,8 +31,8 @@ namespace _Presentación
         {
             clientes = new List<Cliente>();
             clientes = clienteService.ConsultarListClientes();
-            //MessageBox.Show(clientes.ToString());
-            dataGridView777.DataSource = clientes;
+            
+            dataRegistro.DataSource = clientes;
         }
         
         private void MostrarPlanes()
@@ -146,7 +146,7 @@ namespace _Presentación
             */
             string mensaje = clienteService.GuardarCliente(cliente);
             MessageBox.Show(mensaje, "Guardar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            CargarListado();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -199,6 +199,18 @@ namespace _Presentación
         private void calendario_DateChanged(object sender, DateRangeEventArgs e)
         {
 
+        }
+
+        private void dataRegistro_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtnombre.Text = dataRegistro.CurrentRow.Cells[1].Value.ToString();
+            txtapellido.Text = dataRegistro.CurrentRow.Cells[2].Value.ToString();
+            txtidentificacion.Text = dataRegistro.CurrentRow.Cells[3].Value.ToString();
+            txtedad.Text = dataRegistro.CurrentRow.Cells[4].Value.ToString();
+            cmbsexo.Text = dataRegistro.CurrentRow.Cells[5].Value.ToString();
+            txtdireccion.Text = dataRegistro.CurrentRow.Cells[6].Value.ToString();
+            cmbplan.Text = dataRegistro.CurrentRow.Cells[6].Value.ToString();
+            lblfecha.Text = dataRegistro.CurrentRow.Cells[7].Value.ToString();
         }
     }
 }

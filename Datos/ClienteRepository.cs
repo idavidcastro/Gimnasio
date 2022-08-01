@@ -110,7 +110,7 @@ namespace Datos
             }
         }
 
-        public List<Cliente> ConsultarClientes(int identificacion)
+        public List<Cliente> ConsultarClientes(string identificacion)
         {
             List<Cliente> clientes = new List<Cliente>();
             using (var command = _connection.CreateCommand())
@@ -122,17 +122,17 @@ namespace Datos
                 {
                     Cliente cliente = new Cliente
                     {
-                        Identificacion = reader.GetInt32(0),
+                        Identificacion = int.Parse(reader.GetString(0)),
                         Nombre = reader.GetString(1),
                         Apellido = reader.GetString(2),
-                        Edad = reader.GetInt32(3),
+                        Edad = int.Parse(reader.GetString(3)),
                         Sexo = reader.GetString(4),
                         Direccion = reader.GetString(5),
                         PlanCliente = new Plan
                         {
                             CodigoPlan = reader.GetString(6),
                             NombrePlan = reader.GetString(7),
-                            ValorPlan = reader.GetDecimal(8)
+                            ValorPlan = decimal.Parse(reader.GetString(8))
                         },
                         FechaIngreso = reader.GetString(9)
                     };
@@ -169,25 +169,7 @@ namespace Datos
                         cliente.PlanCliente.NombrePlan = reader.GetString(7);
                         cliente.PlanCliente.ValorPlan = decimal.Parse(reader.GetString(8));
                         cliente.FechaIngreso = reader.GetString(9);
-                        //cliente.PlanCliente = new Plan();
-                        /*
-                        Cliente cliente = new Cliente
-                        {
-                            Identificacion = reader.GetInt32(0),
-                            Nombre = reader.GetString(1),
-                            Apellido = reader.GetString(2),
-                            Edad = reader.GetInt32(3),
-                            Sexo = reader.GetString(4),
-                            Direccion = reader.GetString(5),
-                            PlanCliente = new Plan
-                            {
-                                CodigoPlan = reader.GetString(6),
-                                NombrePlan = reader.GetString(7),
-                                ValorPlan = reader.GetDecimal(8)
-                            },
-                            FechaIngreso = reader.GetString(9)
-                        };
-                        */
+                     
                         clientes.Add(cliente);
                     }
                 }
@@ -195,38 +177,8 @@ namespace Datos
             return clientes;
 
 
-            /*
-            List<Cliente> clientes = new List<Cliente>();
-            using (var command = _connection.CreateCommand())
-            {
-                command.CommandText = "select * from Cliente";
-                var reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    Cliente cliente = new Cliente
-                    {
-                        Identificacion = reader.GetInt32(0),
-                        Nombre = reader.GetString(1),
-                        Apellido = reader.GetString(2),
-                        Edad = reader.GetInt32(3),
-                        Sexo = reader.GetString(4),
-                        Direccion = reader.GetString(5),
-                        PlanCliente = new Plan
-                        {
-                            CodigoPlan = reader.GetString(6),
-                            NombrePlan = reader.GetString(7),
-                            ValorPlan = reader.GetDecimal(8)
-                        },
-                        FechaIngreso = reader.GetString(9)
-                    };
-
-                    clientes.Add(cliente);
-                }
-                reader.Close();
-            }
-
-            return clientes;
-            */
+            
         }
+        
     }
 }

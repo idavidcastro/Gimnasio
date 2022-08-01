@@ -129,6 +129,32 @@ namespace Lógica
                 connectionManager.Close();
             }
         }
+        public BusquedaReponsePlan BuscarPlan(string codigo)
+        {
+            try
+            {
+                connectionManager.Open();
+                if (planRepository.BuscarPlanPorCodigo(codigo) == null)
+                {
+                    return new BusquedaReponsePlan($"El plan con el código {codigo} NO se encuentra registrado");
+
+                }
+                else
+                {
+                    return new BusquedaReponsePlan(planRepository.BuscarPlanPorCodigo(codigo));
+                }
+            }
+            catch (Exception exception)
+            {
+
+                return new BusquedaReponsePlan("Se presentó el siguiente error: " + exception.Message);
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+
+        }
     }
     public class ConsultaReponsePlan
     {
@@ -143,6 +169,25 @@ namespace Lógica
         }
 
         public ConsultaReponsePlan(string mensaje)
+        {
+            Mensaje = mensaje;
+            Error = true;
+        }
+
+    }
+    public class BusquedaReponsePlan
+    {
+        public Plan Plan { get; set; }
+        public string Mensaje { get; set; }
+        public bool Error { get; set; }
+
+        public BusquedaReponsePlan(Plan plan)
+        {
+            Plan = plan;
+            Error = false;
+        }
+
+        public BusquedaReponsePlan(string mensaje)
         {
             Mensaje = mensaje;
             Error = true;

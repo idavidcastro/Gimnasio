@@ -26,7 +26,7 @@ namespace _Presentación
         {
             ConsultaReponseCliente respuesta ;
        
-           respuesta  = clienteService.ConsultarClientes(Convert.ToInt32(txtid.Text));
+           respuesta  = clienteService.ConsultarClientes(txtid.Text);
 
             AbrirFormHija(new Asistenciapersonal());
 
@@ -54,6 +54,11 @@ namespace _Presentación
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtid_TextChanged(object sender, EventArgs e)
         {
 
         }

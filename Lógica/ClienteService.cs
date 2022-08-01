@@ -112,7 +112,7 @@ namespace Lógica
             }
             return clientes;
         }
-        public ConsultaReponseCliente ConsultarClientes(int identificacion)
+        public ConsultaReponseCliente ConsultarClientes(string identificacion)
         {
             try
             {

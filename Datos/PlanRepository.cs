@@ -45,12 +45,12 @@ namespace Datos
                 {
                     while (reader.Read())
                     {
-                        Plan plan = new Plan
-                        {
-                            CodigoPlan = reader.GetString(0),
-                            NombrePlan = reader.GetString(1),
-                            ValorPlan = reader.GetDecimal(2),                          
-                        };
+                        Plan plan = new Plan();
+                        plan.CodigoPlan = reader.GetString(0);
+                        plan.NombrePlan = reader.GetString(1);
+                        plan.ValorPlan = decimal.Parse(reader.GetString(2));
+
+                        return plan;
                     }
                 }
                 reader.Close();
@@ -108,25 +108,25 @@ namespace Datos
         }
         public List<Plan> ConsultarListPlanes()
         {
-            List<Plan> productos = new List<Plan>();
+            List<Plan> planes = new List<Plan>();
             using (var command = _connection.CreateCommand())
             {
                 command.CommandText = "select * from Plann";
                 var reader = command.ExecuteReader();
-                while (reader.Read())
+                if (reader.HasRows)
                 {
-                    Plan plan = new Plan
+                    while (reader.Read())
                     {
-                        CodigoPlan = reader.GetString(0),
-                        NombrePlan = reader.GetString(1),
-                        ValorPlan = reader.GetDecimal(2),
-                    };
-                    productos.Add(plan);
+                        Plan plan = new Plan();
+                        plan.CodigoPlan = reader.GetString(0);
+                        plan.NombrePlan = reader.GetString(1);
+                        plan.ValorPlan = decimal.Parse(reader.GetString(2));
+                        
+                        planes.Add(plan);
+                    }
                 }
-                reader.Close();
             }
-
-            return productos;
+            return planes;
         }
     }
 }

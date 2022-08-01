@@ -16,6 +16,7 @@ namespace _Presentación
     {
         Plan plan;
         PlanService planService;
+        List<Plan> planes;
         public Tipos_de_plancs()
         {
             InitializeComponent();
@@ -24,9 +25,10 @@ namespace _Presentación
         }
         public void CargarListado()
         {
-            var respuesta = planService.ConsultarListPlanes();
-            pruebaa.DataSource = respuesta;
-            //dataPanes.DataSource = respuesta;
+            planes = new List<Plan>();
+            planes = planService.ConsultarListPlanes();
+
+            dataPanes.DataSource = planes;
         }
 
         private void btnguardar_Click(object sender, EventArgs e)
@@ -37,9 +39,9 @@ namespace _Presentación
                 MessageBox.Show("Debe ingresar un plan ...!!!!");
             else if (txtvalor.Text == "")
                 MessageBox.Show("Debe ingresar un valor ...!!!!");
-
-            else
             /*
+            else
+            
             {
                 //capturando datos//
                 string codigo = txtcodigo.Text;
@@ -55,19 +57,54 @@ namespace _Presentación
 
             }
             */
-            plan = new Plan
-            {
-                CodigoPlan = txtcodigo.Text,
-                NombrePlan= txtplan.Text,
-                ValorPlan= decimal.Parse(txtvalor.Text)
-            };
+            plan = new Plan();
+            plan.CodigoPlan = txtcodigo.Text;
+            plan.NombrePlan = txtplan.Text;
+            plan.ValorPlan = decimal.Parse(txtvalor.Text);
+
             string mensaje = planService.GuardarPlan(plan);
             MessageBox.Show(mensaje, "Guardar plan", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            CargarListado();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void Tipos_de_plancs_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataPanes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtcodigo.Text = dataPanes.CurrentRow.Cells[0].Value.ToString();
+            txtplan.Text = dataPanes.CurrentRow.Cells[1].Value.ToString();
+            txtvalor.Text = dataPanes.CurrentRow.Cells[2].Value.ToString();
+        }
+
+        private void btneditar_Click(object sender, EventArgs e)
+        {
+            plan = new Plan();
+            plan.CodigoPlan = txtcodigo.Text;
+            plan.NombrePlan = txtplan.Text;
+            plan.ValorPlan = decimal.Parse(txtvalor.Text);
+
+            string mensaje = planService.ModificarPlan(plan, txtcodigo.Text);
+            MessageBox.Show(mensaje, "Modificar plan", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            CargarListado();
+        }
+
+        private void btneliminar_Click(object sender, EventArgs e)
+        {
+            string id = Convert.ToString(dataPanes.CurrentRow.Cells[0].Value);
+            
+            string mensaje = planService.EliminarPlan(id);
+            MessageBox.Show(mensaje, "Eliminar estibado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            CargarListado();
         }
     }
 }
