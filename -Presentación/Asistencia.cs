@@ -7,19 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidad;
+using Lógica;
 
 namespace _Presentación
 {
     public partial class Asistencia : Form
     {
+        Cliente cliente;
+        ClienteService clienteService;
         public Asistencia()
         {
             InitializeComponent();
+            clienteService = new ClienteService(ConfigConnectionString.Cadena);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            ConsultaReponseCliente respuesta ;
+       
+           respuesta  = clienteService.ConsultarClientes(Convert.ToInt32(txtid.Text));
+
             AbrirFormHija(new Asistenciapersonal());
+
+           
+
+            DateTime fecha = Convert.ToDateTime(respuesta.Clientes);
+            fecha = fecha.AddDays(-1);
 
         }
         private void AbrirFormHija(object Formhijo)
@@ -36,6 +50,11 @@ namespace _Presentación
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
 
         }
     }
