@@ -14,4 +14,5 @@ drop table Cliente
 drop table Plann
 
 select *from Cliente
+select * from Plann
 

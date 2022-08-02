@@ -12,5 +12,9 @@ namespace Entidad
         public string NombrePlan { get; set; }
         public decimal ValorPlan { get; set; }
         //public List<Cliente> Clientes { get; set; }
+        public override string ToString()
+        {
+            return NombrePlan;
+        }
     }
 }
