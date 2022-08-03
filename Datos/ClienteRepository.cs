@@ -41,7 +41,7 @@ namespace Datos
             }
         }
 
-        public Cliente BuscarClientePorIdentificacion(int identificacion)
+        public Cliente BuscarClientePorIdentificacion(string identificacion)
         {
             using (var command = _connection.CreateCommand())
             {
@@ -55,11 +55,11 @@ namespace Datos
                     {
                         Cliente cliente = new Cliente
                         {
-                            Identificacion = int.Parse(reader.GetString(0)),
+                            Identificacion = reader.GetString(0),
                             Nombre = reader.GetString(1),
                             Apellido = reader.GetString(2),
-                            Edad = int.Parse(reader.GetString(3)),
-                            Telefono = int.Parse(reader.GetString(4)),
+                            Edad = reader.GetString(3),
+                            Telefono = reader.GetString(4),
                             Sexo = reader.GetString(5),
                             Direccion = reader.GetString(6),
                             PlanCliente = new Plan
@@ -80,7 +80,7 @@ namespace Datos
         }
 
 
-        public void EliminarClienteRep(int identificacion)
+        public void EliminarClienteRep(string identificacion)
         {
             using (var command = _connection.CreateCommand())
             {
@@ -90,7 +90,7 @@ namespace Datos
             }
         }
 
-        public void ModificarCliente(Cliente clienteNuevo, int identificacion)
+        public void ModificarCliente(Cliente clienteNuevo, string identificacion)
         {
             using (var command = _connection.CreateCommand())
             {
@@ -125,11 +125,11 @@ namespace Datos
                 {
                     Cliente cliente = new Cliente
                     {
-                        Identificacion = int.Parse(reader.GetString(0)),
+                        Identificacion = reader.GetString(0),
                         Nombre = reader.GetString(1),
                         Apellido = reader.GetString(2),
-                        Edad = int.Parse(reader.GetString(3)),
-                        Telefono = int.Parse(reader.GetString(4)),
+                        Edad = reader.GetString(3),
+                        Telefono = reader.GetString(4),
                         Sexo = reader.GetString(5),
                         Direccion = reader.GetString(6),
                         PlanCliente = new Plan
@@ -164,9 +164,9 @@ namespace Datos
 
                         cliente.Nombre = reader.GetString(1);
                         cliente.Apellido = reader.GetString(2);
-                        cliente.Identificacion = int.Parse(reader.GetString(0));
-                        cliente.Edad = int.Parse(reader.GetString(3));
-                        cliente.Telefono = int.Parse(reader.GetString(4));
+                        cliente.Identificacion = reader.GetString(0);
+                        cliente.Edad = reader.GetString(3);
+                        cliente.Telefono = reader.GetString(4);
                         cliente.Sexo = reader.GetString(5);
                         cliente.Direccion = reader.GetString(6);
                         cliente.PlanCliente = new Plan();

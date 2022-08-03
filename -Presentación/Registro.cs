@@ -71,7 +71,7 @@ namespace _Presentación
 
         private void button1_Click(object sender, EventArgs e)
         {
-            lblfecha.Text = DateTime.Now.ToShortDateString();
+            //lblfecha.Text = DateTime.Now.ToShortDateString();
 
 
             if (txtnombre.Text == "")
@@ -137,11 +137,11 @@ namespace _Presentación
             };
             
             cliente = new Cliente();
-            cliente.Identificacion = int.Parse(txtidentificacion.Text);
+            cliente.Identificacion = txtidentificacion.Text;
             cliente.Nombre = txtnombre.Text;
             cliente.Apellido = txtapellido.Text;
-            cliente.Edad = int.Parse(txtedad.Text);
-            cliente.Telefono = int.Parse(txttelefono.Text);
+            cliente.Edad = txtedad.Text;
+            cliente.Telefono = txttelefono.Text;
             cliente.Sexo = cmbsexo.Text;
             cliente.Direccion = txtdireccion.Text;
             cliente.PlanCliente = plan;
@@ -180,7 +180,10 @@ namespace _Presentación
 
 
             DateTime fecha = calendario.SelectionStart;
-            lblfecha.Text = fecha.ToString();
+            lblfecha.Text = fecha.ToShortDateString();
+
+            DateTime fechavencimiento = fecha.AddMonths(1);
+            MessageBox.Show(fechavencimiento.ToShortDateString());
         }
 
         private void Registro_Load(object sender, EventArgs e)
@@ -261,18 +264,18 @@ namespace _Presentación
             };
 
             cliente = new Cliente();
-            cliente.Identificacion = int.Parse(txtidentificacion.Text);
+            cliente.Identificacion = txtidentificacion.Text;
             cliente.Nombre = txtnombre.Text;
             cliente.Apellido = txtapellido.Text;
-            cliente.Edad = int.Parse(txtedad.Text);
-            cliente.Telefono = int.Parse(txttelefono.Text);
+            cliente.Edad = txtedad.Text;
+            cliente.Telefono = txttelefono.Text;
             cliente.Sexo = cmbsexo.Text;
             cliente.Direccion = txtdireccion.Text;
             cliente.PlanCliente = plan;
             cliente.FechaIngreso = lblfecha.Text;
             
 
-            string mensaje = clienteService.ModificarCliente(cliente, Convert.ToInt32(txtidentificacion.Text));
+            string mensaje = clienteService.ModificarCliente(cliente, txtidentificacion.Text);
             MessageBox.Show(mensaje, "Modificar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
             CargarListado();
             
@@ -285,7 +288,7 @@ namespace _Presentación
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(dataRegistro.CurrentRow.Cells[2].Value);
+            string id = Convert.ToString(dataRegistro.CurrentRow.Cells[2].Value);
 
             string mensaje = clienteService.EliminarCliente(id);
             MessageBox.Show(mensaje, "Eliminar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);

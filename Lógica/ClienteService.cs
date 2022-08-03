@@ -47,7 +47,7 @@ namespace Lógica
 
         }
 
-        public string EliminarCliente(int identificacion)
+        public string EliminarCliente(string identificacion)
         {
             try
             {
@@ -70,7 +70,7 @@ namespace Lógica
             }
         }
 
-        public string ModificarCliente(Cliente clienteNuevo, int identificacion)
+        public string ModificarCliente(Cliente clienteNuevo, string identificacion)
         {
             try
             {
@@ -129,7 +129,7 @@ namespace Lógica
                 connectionManager.Close();
             }
         }
-        public BusquedaReponseCliente BuscarCliente(int id)
+        public BusquedaReponseCliente BuscarCliente(string id)
         {
             try
             {

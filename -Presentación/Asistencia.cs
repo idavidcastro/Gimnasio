@@ -14,7 +14,7 @@ namespace _Presentación
 {
     public partial class Asistencia : Form
     {
-        Cliente cliente;
+        //Cliente cliente;
         ClienteService clienteService;
         public Asistencia()
         {
@@ -25,7 +25,7 @@ namespace _Presentación
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             BusquedaReponseCliente respuesta ;
-            int id = Convert.ToInt32(txtid.Text);
+            string id = txtid.Text;
 
             respuesta  = clienteService.BuscarCliente(id);
             //MessageBox.Show(respuesta.Cliente.Nombre);
