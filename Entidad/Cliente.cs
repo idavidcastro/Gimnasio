@@ -13,6 +13,7 @@ namespace Entidad
         public string Apellido { get; set; }
         public int Identificacion { get; set; }
         public int Edad { get; set; }
+        public int Telefono { get; set; }
         public string Sexo { get; set; }
         public string Direccion { get; set; }
         public Plan PlanCliente { get; set; }

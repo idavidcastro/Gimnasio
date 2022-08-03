@@ -24,16 +24,45 @@ namespace _Presentación
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            ConsultaReponseCliente respuesta ;
-       
-           respuesta  = clienteService.ConsultarClientes(txtid.Text);
+            BusquedaReponseCliente respuesta ;
+            int id = Convert.ToInt32(txtid.Text);
 
-            AbrirFormHija(new Asistenciapersonal());
+            respuesta  = clienteService.BuscarCliente(id);
+            //MessageBox.Show(respuesta.Cliente.Nombre);
 
-           
+            if (respuesta.Error)
+            {
+                MessageBox.Show(respuesta.Mensaje);
+            }
+            else
+            {
+                panelInformacion.Visible = true;
+                if (respuesta.Cliente.Sexo == "Masculino")
+                {
+                    logomujer.Visible = false;
+                    logohombre.Visible = true;
+                    MessageBox.Show(respuesta.Cliente.Nombre);
 
-            DateTime fecha = Convert.ToDateTime(respuesta.Clientes);
-            fecha = fecha.AddDays(-1);
+                    lblnombre.Text = respuesta.Cliente.Nombre + " hols";//respuesta.Cliente.Apellido;
+                    lblfecha.Text = respuesta.Cliente.FechaIngreso;
+                }
+                else
+                {
+                    logohombre.Visible = false;
+                    logomujer.Visible = true;
+
+
+                    lblnombre.Text = respuesta.Cliente.Nombre + respuesta.Cliente.Apellido;
+                    lblfecha.Text = respuesta.Cliente.FechaIngreso;
+                }
+            }
+
+            //AbrirFormHija(new Asistenciapersonal());
+
+
+
+            //DateTime fecha = Convert.ToDateTime(respuesta.Cliente);
+            //fecha = fecha.AddDays(-1);
 
         }
         private void AbrirFormHija(object Formhijo)

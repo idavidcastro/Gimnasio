@@ -64,6 +64,10 @@ namespace _Presentación
             this.cmbplan = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.txtvalorplanotro = new System.Windows.Forms.TextBox();
+            this.txtnombreplanotro = new System.Windows.Forms.TextBox();
+            this.txtcodigoplanotro = new System.Windows.Forms.TextBox();
+            this.BtnLimpiarCampos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataRegistro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -263,7 +267,7 @@ namespace _Presentación
             this.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnguardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnguardar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnguardar.Location = new System.Drawing.Point(659, 462);
+            this.btnguardar.Location = new System.Drawing.Point(524, 445);
             this.btnguardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(127, 54);
@@ -299,7 +303,7 @@ namespace _Presentación
             this.dataRegistro.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataRegistro.EnableHeadersVisualStyles = false;
             this.dataRegistro.GridColor = System.Drawing.Color.Navy;
-            this.dataRegistro.Location = new System.Drawing.Point(73, 542);
+            this.dataRegistro.Location = new System.Drawing.Point(47, 517);
             this.dataRegistro.Margin = new System.Windows.Forms.Padding(4);
             this.dataRegistro.Name = "dataRegistro";
             this.dataRegistro.ReadOnly = true;
@@ -312,7 +316,7 @@ namespace _Presentación
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataRegistro.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataRegistro.RowHeadersWidth = 51;
-            this.dataRegistro.Size = new System.Drawing.Size(1256, 112);
+            this.dataRegistro.Size = new System.Drawing.Size(1282, 161);
             this.dataRegistro.TabIndex = 20;
             this.dataRegistro.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataRegistro_CellClick);
             this.dataRegistro.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -327,6 +331,7 @@ namespace _Presentación
             this.lblfecha.Size = new System.Drawing.Size(80, 24);
             this.lblfecha.TabIndex = 21;
             this.lblfecha.Text = "00/00/00";
+            this.lblfecha.Click += new System.EventHandler(this.lblfecha_Click);
             // 
             // cmbsexo
             // 
@@ -365,6 +370,9 @@ namespace _Presentación
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.txtcodigoplanotro);
+            this.panel1.Controls.Add(this.txtnombreplanotro);
+            this.panel1.Controls.Add(this.txtvalorplanotro);
             this.panel1.Controls.Add(this.txtvalorplan);
             this.panel1.Controls.Add(this.txtnombreplan);
             this.panel1.Controls.Add(this.txtcodigoplan);
@@ -445,6 +453,7 @@ namespace _Presentación
             this.button1.TabIndex = 26;
             this.button1.Text = "EDITAR";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button2
             // 
@@ -459,6 +468,49 @@ namespace _Presentación
             this.button2.TabIndex = 27;
             this.button2.Text = "ELIMINAR";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // txtvalorplanotro
+            // 
+            this.txtvalorplanotro.Location = new System.Drawing.Point(13, 77);
+            this.txtvalorplanotro.Multiline = true;
+            this.txtvalorplanotro.Name = "txtvalorplanotro";
+            this.txtvalorplanotro.Size = new System.Drawing.Size(22, 31);
+            this.txtvalorplanotro.TabIndex = 31;
+            this.txtvalorplanotro.Visible = false;
+            // 
+            // txtnombreplanotro
+            // 
+            this.txtnombreplanotro.Location = new System.Drawing.Point(13, 77);
+            this.txtnombreplanotro.Multiline = true;
+            this.txtnombreplanotro.Name = "txtnombreplanotro";
+            this.txtnombreplanotro.Size = new System.Drawing.Size(22, 31);
+            this.txtnombreplanotro.TabIndex = 32;
+            this.txtnombreplanotro.Visible = false;
+            // 
+            // txtcodigoplanotro
+            // 
+            this.txtcodigoplanotro.Location = new System.Drawing.Point(13, 77);
+            this.txtcodigoplanotro.Multiline = true;
+            this.txtcodigoplanotro.Name = "txtcodigoplanotro";
+            this.txtcodigoplanotro.Size = new System.Drawing.Size(22, 31);
+            this.txtcodigoplanotro.TabIndex = 33;
+            this.txtcodigoplanotro.Visible = false;
+            // 
+            // BtnLimpiarCampos
+            // 
+            this.BtnLimpiarCampos.BackColor = System.Drawing.Color.Blue;
+            this.BtnLimpiarCampos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLimpiarCampos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLimpiarCampos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnLimpiarCampos.Location = new System.Drawing.Point(763, 445);
+            this.BtnLimpiarCampos.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnLimpiarCampos.Name = "BtnLimpiarCampos";
+            this.BtnLimpiarCampos.Size = new System.Drawing.Size(109, 49);
+            this.BtnLimpiarCampos.TabIndex = 28;
+            this.BtnLimpiarCampos.Text = "LIMPIAR";
+            this.BtnLimpiarCampos.UseVisualStyleBackColor = false;
+            this.BtnLimpiarCampos.Click += new System.EventHandler(this.BtnLimpiarCampos_Click);
             // 
             // Registro
             // 
@@ -466,6 +518,7 @@ namespace _Presentación
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1467, 738);
+            this.Controls.Add(this.BtnLimpiarCampos);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
@@ -520,5 +573,9 @@ namespace _Presentación
         private System.Windows.Forms.TextBox txtvalorplan;
         private System.Windows.Forms.TextBox txtnombreplan;
         private System.Windows.Forms.TextBox txtcodigoplan;
+        private System.Windows.Forms.TextBox txtcodigoplanotro;
+        private System.Windows.Forms.TextBox txtnombreplanotro;
+        private System.Windows.Forms.TextBox txtvalorplanotro;
+        private System.Windows.Forms.Button BtnLimpiarCampos;
     }
 }

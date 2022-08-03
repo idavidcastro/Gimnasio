@@ -26,13 +26,29 @@ namespace _Presentación
             MostrarPlanes();
             clienteService = new ClienteService(ConfigConnectionString.Cadena);
             CargarListado();
+            txtnombre.Focus();
+
         }
-        public void CargarListado()
+        private void CargarListado()
         {
+
             clientes = new List<Cliente>();
             clientes = clienteService.ConsultarListClientes();
             
             dataRegistro.DataSource = clientes;
+        }
+        
+        private void LimpiarCampos()
+        {
+            txtnombre.Text = "";
+            txtapellido.Text = "";
+            txtidentificacion.Text = "";
+            txtedad.Text = "";
+            txttelefono.Text = "";
+            cmbsexo.Text = "";
+            txtdireccion.Text = "";
+            cmbplan.Text = "";
+            lblfecha.Text = "";
         }
         
         private void MostrarPlanes()
@@ -55,7 +71,7 @@ namespace _Presentación
 
         private void button1_Click(object sender, EventArgs e)
         {
-            lblfecha.Text = DateTime.Today.Date.ToString("d");
+            lblfecha.Text = DateTime.Now.ToShortDateString();
 
 
             if (txtnombre.Text == "")
@@ -120,11 +136,12 @@ namespace _Presentación
                 ValorPlan=decimal.Parse(txtvalorplan.Text)
             };
             
-            Cliente cliente = new Cliente();
+            cliente = new Cliente();
             cliente.Identificacion = int.Parse(txtidentificacion.Text);
             cliente.Nombre = txtnombre.Text;
             cliente.Apellido = txtapellido.Text;
             cliente.Edad = int.Parse(txtedad.Text);
+            cliente.Telefono = int.Parse(txttelefono.Text);
             cliente.Sexo = cmbsexo.Text;
             cliente.Direccion = txtdireccion.Text;
             cliente.PlanCliente = plan;
@@ -147,6 +164,7 @@ namespace _Presentación
             string mensaje = clienteService.GuardarCliente(cliente);
             MessageBox.Show(mensaje, "Guardar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
             CargarListado();
+            LimpiarCampos();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -203,14 +221,77 @@ namespace _Presentación
 
         private void dataRegistro_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtnombre.Text = dataRegistro.CurrentRow.Cells[1].Value.ToString();
-            txtapellido.Text = dataRegistro.CurrentRow.Cells[2].Value.ToString();
-            txtidentificacion.Text = dataRegistro.CurrentRow.Cells[3].Value.ToString();
-            txtedad.Text = dataRegistro.CurrentRow.Cells[4].Value.ToString();
+            txtnombre.Text = dataRegistro.CurrentRow.Cells[0].Value.ToString();
+            txtapellido.Text = dataRegistro.CurrentRow.Cells[1].Value.ToString();
+            txtidentificacion.Text = dataRegistro.CurrentRow.Cells[2].Value.ToString();
+            txtedad.Text = dataRegistro.CurrentRow.Cells[3].Value.ToString();
+            txttelefono.Text= dataRegistro.CurrentRow.Cells[4].Value.ToString();
             cmbsexo.Text = dataRegistro.CurrentRow.Cells[5].Value.ToString();
             txtdireccion.Text = dataRegistro.CurrentRow.Cells[6].Value.ToString();
-            cmbplan.Text = dataRegistro.CurrentRow.Cells[6].Value.ToString();
-            lblfecha.Text = dataRegistro.CurrentRow.Cells[7].Value.ToString();
+            cmbplan.Text = dataRegistro.CurrentRow.Cells[7].Value.ToString();
+            lblfecha.Text = dataRegistro.CurrentRow.Cells[8].Value.ToString();
+
+            SqlConnection cn = new SqlConnection(ConfigConnectionString.Cadena);
+            cn.Open();
+
+            SqlCommand cm = new SqlCommand("select * from Plann where Nombre= '" + cmbplan.Text + "'", cn);
+            SqlDataReader reader = cm.ExecuteReader();
+            if (reader.Read() == true)
+            {
+                txtcodigoplanotro.Text = reader["CodigoPlan"].ToString();
+                txtnombreplanotro.Text = reader["Nombre"].ToString();
+                txtvalorplanotro.Text = reader["Valor"].ToString();              
+
+            }
+            cn.Close();
+        }
+
+        private void lblfecha_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            plan = new Plan()
+            {
+                CodigoPlan = txtcodigoplanotro.Text,
+                NombrePlan = txtnombreplanotro.Text,
+                ValorPlan = decimal.Parse(txtvalorplanotro.Text)
+            };
+
+            cliente = new Cliente();
+            cliente.Identificacion = int.Parse(txtidentificacion.Text);
+            cliente.Nombre = txtnombre.Text;
+            cliente.Apellido = txtapellido.Text;
+            cliente.Edad = int.Parse(txtedad.Text);
+            cliente.Telefono = int.Parse(txttelefono.Text);
+            cliente.Sexo = cmbsexo.Text;
+            cliente.Direccion = txtdireccion.Text;
+            cliente.PlanCliente = plan;
+            cliente.FechaIngreso = lblfecha.Text;
+            
+
+            string mensaje = clienteService.ModificarCliente(cliente, Convert.ToInt32(txtidentificacion.Text));
+            MessageBox.Show(mensaje, "Modificar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            CargarListado();
+            
+        }
+
+        private void BtnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dataRegistro.CurrentRow.Cells[2].Value);
+
+            string mensaje = clienteService.EliminarCliente(id);
+            MessageBox.Show(mensaje, "Eliminar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            CargarListado();
+            LimpiarCampos();
         }
     }
 }

@@ -47,7 +47,7 @@ namespace Lógica
 
         }
 
-        public string EliminarDocente(int identificacion)
+        public string EliminarCliente(int identificacion)
         {
             try
             {
@@ -129,6 +129,32 @@ namespace Lógica
                 connectionManager.Close();
             }
         }
+        public BusquedaReponseCliente BuscarCliente(int id)
+        {
+            try
+            {
+                connectionManager.Open();
+                if (clienteRepository.BuscarClientePorIdentificacion(id) == null)
+                {
+                    return new BusquedaReponseCliente($"El cliente con la identificación {id} NO se encuentra registrado");
+
+                }
+                else
+                {
+                    return new BusquedaReponseCliente(clienteRepository.BuscarClientePorIdentificacion(id));
+                }
+            }
+            catch (Exception exception)
+            {
+
+                return new BusquedaReponseCliente("Se presentó el siguiente error: " + exception.Message);
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+
+        }
     }
     public class ConsultaReponseCliente
     {
@@ -143,6 +169,25 @@ namespace Lógica
         }
 
         public ConsultaReponseCliente(string mensaje)
+        {
+            Mensaje = mensaje;
+            Error = true;
+        }
+
+    }
+    public class BusquedaReponseCliente
+    {
+        public Cliente Cliente { get; set; }
+        public string Mensaje { get; set; }
+        public bool Error { get; set; }
+
+        public BusquedaReponseCliente(Cliente cliente)
+        {
+            Cliente = cliente;
+            Error = false;
+        }
+
+        public BusquedaReponseCliente(string mensaje)
         {
             Mensaje = mensaje;
             Error = true;
