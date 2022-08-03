@@ -37,22 +37,25 @@ namespace _Presentación
             else
             {
                 panelInformacion.Visible = true;
-                if (respuesta.Cliente.Sexo == "Masculino")
+                if (respuesta.Cliente.Sexo.Equals("Masculino "))
                 {
-                    logomujer.Visible = false;
+              
                     logohombre.Visible = true;
-                    MessageBox.Show(respuesta.Cliente.Nombre);
+                    logomujer.Visible = false;
+                   
+                    
 
-                    lblnombre.Text = respuesta.Cliente.Nombre + " hols";//respuesta.Cliente.Apellido;
+                    lblnombre.Text = respuesta.Cliente.Nombre + " " + respuesta.Cliente.Apellido;
                     lblfecha.Text = respuesta.Cliente.FechaIngreso;
                 }
                 else
                 {
-                    logohombre.Visible = false;
+                    if (respuesta.Cliente.Sexo == "Femenino")
+                       
                     logomujer.Visible = true;
+                    logohombre.Visible = false;
 
-
-                    lblnombre.Text = respuesta.Cliente.Nombre + respuesta.Cliente.Apellido;
+                    lblnombre.Text = respuesta.Cliente.Nombre +" " + respuesta.Cliente.Apellido;
                     lblfecha.Text = respuesta.Cliente.FechaIngreso;
                 }
             }
@@ -88,6 +91,11 @@ namespace _Presentación
         }
 
         private void txtid_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void logomujer_Click(object sender, EventArgs e)
         {
 
         }

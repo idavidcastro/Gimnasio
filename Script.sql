@@ -10,7 +10,7 @@ alter table Cliente add constraint FK_CodPlan foreign key (CodPlan) references P
 
 insert into Plann(CodigoPlan, Nombre, Valor) values ('01','Mensualidad','20000');
 insert into Plann(CodigoPlan, Nombre, Valor) values ('02','Bono','10000');
-
+ 
 
 select *from Cliente
 select * from Plann

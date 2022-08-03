@@ -56,5 +56,10 @@ namespace _Presentación
             }
             txtidConsulta.Text = "";
         }
+
+        private void dataConsulta_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
