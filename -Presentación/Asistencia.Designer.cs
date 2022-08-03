@@ -35,17 +35,17 @@ namespace _Presentación
             this.txtid = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panelInformacion = new System.Windows.Forms.Panel();
+            this.logohombre = new System.Windows.Forms.PictureBox();
             this.logomujer = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.lblfecha = new System.Windows.Forms.Label();
             this.lblnombre = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.logohombre = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelInformacion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logomujer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logohombre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logomujer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,6 +105,17 @@ namespace _Presentación
             this.panelInformacion.TabIndex = 4;
             this.panelInformacion.Visible = false;
             this.panelInformacion.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // logohombre
+            // 
+            this.logohombre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.logohombre.Image = ((System.Drawing.Image)(resources.GetObject("logohombre.Image")));
+            this.logohombre.Location = new System.Drawing.Point(31, 37);
+            this.logohombre.Name = "logohombre";
+            this.logohombre.Size = new System.Drawing.Size(229, 250);
+            this.logohombre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logohombre.TabIndex = 7;
+            this.logohombre.TabStop = false;
             // 
             // logomujer
             // 
@@ -175,21 +186,10 @@ namespace _Presentación
             this.label8.TabIndex = 8;
             this.label8.Text = "NOMBRE :";
             // 
-            // logohombre
-            // 
-            this.logohombre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.logohombre.Image = ((System.Drawing.Image)(resources.GetObject("logohombre.Image")));
-            this.logohombre.Location = new System.Drawing.Point(31, 37);
-            this.logohombre.Name = "logohombre";
-            this.logohombre.Size = new System.Drawing.Size(229, 250);
-            this.logohombre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logohombre.TabIndex = 7;
-            this.logohombre.TabStop = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(800, 129);
+            this.pictureBox1.Location = new System.Drawing.Point(809, 140);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(41, 42);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -215,8 +215,8 @@ namespace _Presentación
             this.Text = "CONTROL DE ACCESO";
             this.panelInformacion.ResumeLayout(false);
             this.panelInformacion.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logomujer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logohombre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logomujer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
