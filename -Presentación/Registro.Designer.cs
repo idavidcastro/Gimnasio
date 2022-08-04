@@ -29,9 +29,9 @@ namespace _Presentación
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registro));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,15 +58,15 @@ namespace _Presentación
             this.calendario = new System.Windows.Forms.MonthCalendar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtcodigoplanotro = new System.Windows.Forms.TextBox();
+            this.txtnombreplanotro = new System.Windows.Forms.TextBox();
+            this.txtvalorplanotro = new System.Windows.Forms.TextBox();
             this.txtvalorplan = new System.Windows.Forms.TextBox();
             this.txtnombreplan = new System.Windows.Forms.TextBox();
             this.txtcodigoplan = new System.Windows.Forms.TextBox();
             this.cmbplan = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.txtvalorplanotro = new System.Windows.Forms.TextBox();
-            this.txtnombreplanotro = new System.Windows.Forms.TextBox();
-            this.txtcodigoplanotro = new System.Windows.Forms.TextBox();
             this.BtnLimpiarCampos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataRegistro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -284,37 +284,37 @@ namespace _Presentación
             this.dataRegistro.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dataRegistro.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataRegistro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataRegistro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataRegistro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataRegistro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataRegistro.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataRegistro.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataRegistro.EnableHeadersVisualStyles = false;
             this.dataRegistro.GridColor = System.Drawing.Color.Navy;
             this.dataRegistro.Location = new System.Drawing.Point(47, 517);
             this.dataRegistro.Margin = new System.Windows.Forms.Padding(4);
             this.dataRegistro.Name = "dataRegistro";
             this.dataRegistro.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataRegistro.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataRegistro.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataRegistro.RowHeadersWidth = 51;
             this.dataRegistro.Size = new System.Drawing.Size(1282, 161);
             this.dataRegistro.TabIndex = 20;
@@ -403,6 +403,33 @@ namespace _Presentación
             this.panel1.Size = new System.Drawing.Size(1255, 373);
             this.panel1.TabIndex = 25;
             // 
+            // txtcodigoplanotro
+            // 
+            this.txtcodigoplanotro.Location = new System.Drawing.Point(13, 77);
+            this.txtcodigoplanotro.Multiline = true;
+            this.txtcodigoplanotro.Name = "txtcodigoplanotro";
+            this.txtcodigoplanotro.Size = new System.Drawing.Size(22, 31);
+            this.txtcodigoplanotro.TabIndex = 33;
+            this.txtcodigoplanotro.Visible = false;
+            // 
+            // txtnombreplanotro
+            // 
+            this.txtnombreplanotro.Location = new System.Drawing.Point(13, 77);
+            this.txtnombreplanotro.Multiline = true;
+            this.txtnombreplanotro.Name = "txtnombreplanotro";
+            this.txtnombreplanotro.Size = new System.Drawing.Size(22, 31);
+            this.txtnombreplanotro.TabIndex = 32;
+            this.txtnombreplanotro.Visible = false;
+            // 
+            // txtvalorplanotro
+            // 
+            this.txtvalorplanotro.Location = new System.Drawing.Point(13, 77);
+            this.txtvalorplanotro.Multiline = true;
+            this.txtvalorplanotro.Name = "txtvalorplanotro";
+            this.txtvalorplanotro.Size = new System.Drawing.Size(22, 31);
+            this.txtvalorplanotro.TabIndex = 31;
+            this.txtvalorplanotro.Visible = false;
+            // 
             // txtvalorplan
             // 
             this.txtvalorplan.Location = new System.Drawing.Point(13, 13);
@@ -469,33 +496,6 @@ namespace _Presentación
             this.button2.Text = "ELIMINAR";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // txtvalorplanotro
-            // 
-            this.txtvalorplanotro.Location = new System.Drawing.Point(13, 77);
-            this.txtvalorplanotro.Multiline = true;
-            this.txtvalorplanotro.Name = "txtvalorplanotro";
-            this.txtvalorplanotro.Size = new System.Drawing.Size(22, 31);
-            this.txtvalorplanotro.TabIndex = 31;
-            this.txtvalorplanotro.Visible = false;
-            // 
-            // txtnombreplanotro
-            // 
-            this.txtnombreplanotro.Location = new System.Drawing.Point(13, 77);
-            this.txtnombreplanotro.Multiline = true;
-            this.txtnombreplanotro.Name = "txtnombreplanotro";
-            this.txtnombreplanotro.Size = new System.Drawing.Size(22, 31);
-            this.txtnombreplanotro.TabIndex = 32;
-            this.txtnombreplanotro.Visible = false;
-            // 
-            // txtcodigoplanotro
-            // 
-            this.txtcodigoplanotro.Location = new System.Drawing.Point(13, 77);
-            this.txtcodigoplanotro.Multiline = true;
-            this.txtcodigoplanotro.Name = "txtcodigoplanotro";
-            this.txtcodigoplanotro.Size = new System.Drawing.Size(22, 31);
-            this.txtcodigoplanotro.TabIndex = 33;
-            this.txtcodigoplanotro.Visible = false;
             // 
             // BtnLimpiarCampos
             // 

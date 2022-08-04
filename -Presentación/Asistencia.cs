@@ -39,14 +39,12 @@ namespace _Presentación
                 panelInformacion.Visible = true;
                 if (respuesta.Cliente.Sexo.Equals("Masculino "))
                 {
-              
+            
                     logohombre.Visible = true;
                     logomujer.Visible = false;
-                   
-                    
 
                     lblnombre.Text = respuesta.Cliente.Nombre + " " + respuesta.Cliente.Apellido;
-                    lblfecha.Text = respuesta.Cliente.FechaIngreso;
+                    
                 }
                 else
                 {
@@ -56,8 +54,20 @@ namespace _Presentación
                     logohombre.Visible = false;
 
                     lblnombre.Text = respuesta.Cliente.Nombre +" " + respuesta.Cliente.Apellido;
-                    lblfecha.Text = respuesta.Cliente.FechaIngreso;
+                    
                 }
+
+                DateTime fechaingreso = DateTime.Parse(respuesta.Cliente.FechaIngreso);
+
+                DateTime fechavencimiento = fechaingreso.AddMonths(1);
+
+                DateTime fechaactual = DateTime.Now.Date;
+
+                TimeSpan diferencia = fechavencimiento - fechaactual;
+
+                int diasvencidos = diferencia.Days;
+
+                lblfecha.Text = diasvencidos.ToString()+" DÍAS";
             }
 
             //AbrirFormHija(new Asistenciapersonal());
@@ -96,6 +106,11 @@ namespace _Presentación
         }
 
         private void logomujer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Asistencia_Load(object sender, EventArgs e)
         {
 
         }
