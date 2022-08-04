@@ -36,6 +36,9 @@ namespace _Presentación
             clientes = clienteService.ConsultarListClientes();
             
             dataRegistro.DataSource = clientes;
+
+            //dataRegistro.CurrentRow.Cells[8].Value.ToString();
+
         }
         
         private void LimpiarCampos()
@@ -147,6 +150,7 @@ namespace _Presentación
             cliente.PlanCliente = plan;
 
             cliente.FechaIngreso = lblfecha.Text;
+            cliente.Estado = "Activo";
             /*
             cliente = new Cliente
             {
@@ -233,6 +237,7 @@ namespace _Presentación
             txtdireccion.Text = dataRegistro.CurrentRow.Cells[6].Value.ToString();
             cmbplan.Text = dataRegistro.CurrentRow.Cells[7].Value.ToString();
             lblfecha.Text = dataRegistro.CurrentRow.Cells[8].Value.ToString();
+            labelEstado.Text= dataRegistro.CurrentRow.Cells[9].Value.ToString();
 
             SqlConnection cn = new SqlConnection(ConfigConnectionString.Cadena);
             cn.Open();
@@ -273,6 +278,7 @@ namespace _Presentación
             cliente.Direccion = txtdireccion.Text;
             cliente.PlanCliente = plan;
             cliente.FechaIngreso = lblfecha.Text;
+            cliente.Estado = labelEstado.Text;
             
 
             string mensaje = clienteService.ModificarCliente(cliente, txtidentificacion.Text);

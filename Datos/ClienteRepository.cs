@@ -23,8 +23,8 @@ namespace Datos
         {
             using (var command = _connection.CreateCommand())
             {
-                command.CommandText = "insert into Cliente(Identificacion,Nombre,Apellido,Edad,Telefono,Sexo,Direccion,CodPlan,Plann,ValorPlan,Fecha)" +
-                              " values (@Identificacion, @Nombre, @Apellido, @Edad,@Telefono, @Sexo, @Direccion, @CodPlan,@Plann,@ValorPlan, @Fecha)";
+                command.CommandText = "insert into Cliente(Identificacion,Nombre,Apellido,Edad,Telefono,Sexo,Direccion,CodPlan,Plann,ValorPlan,Fecha, Estado)" +
+                              " values (@Identificacion, @Nombre, @Apellido, @Edad,@Telefono, @Sexo, @Direccion, @CodPlan,@Plann,@ValorPlan, @Fecha, @Estado)";
                 command.Parameters.Add(new SqlParameter("@Identificacion", cliente.Identificacion));
                 command.Parameters.Add(new SqlParameter("@Nombre", cliente.Nombre));
                 command.Parameters.Add(new SqlParameter("@Apellido", cliente.Apellido));
@@ -36,6 +36,7 @@ namespace Datos
                 command.Parameters.Add(new SqlParameter("@Plann", cliente.PlanCliente.NombrePlan));
                 command.Parameters.Add(new SqlParameter("@ValorPlan", cliente.PlanCliente.ValorPlan));
                 command.Parameters.Add(new SqlParameter("@Fecha", cliente.FechaIngreso));
+                command.Parameters.Add(new SqlParameter("@Estado", cliente.Estado));
 
                 command.ExecuteNonQuery();
             }
@@ -68,7 +69,8 @@ namespace Datos
                                 NombrePlan = reader.GetString(8),
                                 ValorPlan = decimal.Parse(reader.GetString(9))
                             },
-                            FechaIngreso = reader.GetString(10)
+                            FechaIngreso = reader.GetString(10),
+                            Estado = reader.GetString(11)
                         };
 
                         return cliente;
@@ -95,7 +97,7 @@ namespace Datos
             using (var command = _connection.CreateCommand())
             {
                 command.CommandText = "update Cliente set Identificacion=@Identificacion,Nombre=@Nombre,Apellido=@Apellido,Edad=@Edad,Telefono=@Telefono," +
-                    "Sexo=@Sexo, Direccion=@Direccion,CodPlan=@CodPlan,Plann=@Plann,ValorPlan=@ValorPlan,Fecha=@Fecha" +
+                    "Sexo=@Sexo, Direccion=@Direccion,CodPlan=@CodPlan,Plann=@Plann,ValorPlan=@ValorPlan,Fecha=@Fecha,Estado=@Estado" +
                     " where Identificacion=@Identificacion";
                 command.Parameters.Add(new SqlParameter("@Identificacion", identificacion));
                 command.Parameters.Add(new SqlParameter("@Nombre", clienteNuevo.Nombre));
@@ -108,6 +110,7 @@ namespace Datos
                 command.Parameters.Add(new SqlParameter("@Plann", clienteNuevo.PlanCliente.NombrePlan));
                 command.Parameters.Add(new SqlParameter("@ValorPlan", clienteNuevo.PlanCliente.ValorPlan));
                 command.Parameters.Add(new SqlParameter("@Fecha", clienteNuevo.FechaIngreso));
+                command.Parameters.Add(new SqlParameter("@Estado", clienteNuevo.Estado));
 
                 command.ExecuteNonQuery();
             }
@@ -138,7 +141,8 @@ namespace Datos
                             NombrePlan = reader.GetString(8),
                             ValorPlan = decimal.Parse(reader.GetString(9))
                         },
-                        FechaIngreso = reader.GetString(10)
+                        FechaIngreso = reader.GetString(10),
+                        Estado = reader.GetString(11)
                     };
 
                     clientes.Add(cliente);
@@ -174,7 +178,8 @@ namespace Datos
                         cliente.PlanCliente.NombrePlan = reader.GetString(8);
                         cliente.PlanCliente.ValorPlan = decimal.Parse(reader.GetString(9));
                         cliente.FechaIngreso = reader.GetString(10);
-                     
+                        cliente.Estado = reader.GetString(11);
+
                         clientes.Add(cliente);
                     }
                 }

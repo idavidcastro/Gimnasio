@@ -68,6 +68,7 @@ namespace _Presentación
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.BtnLimpiarCampos = new System.Windows.Forms.Button();
+            this.labelEstado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataRegistro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -370,6 +371,7 @@ namespace _Presentación
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.labelEstado);
             this.panel1.Controls.Add(this.txtcodigoplanotro);
             this.panel1.Controls.Add(this.txtnombreplanotro);
             this.panel1.Controls.Add(this.txtvalorplanotro);
@@ -512,6 +514,16 @@ namespace _Presentación
             this.BtnLimpiarCampos.UseVisualStyleBackColor = false;
             this.BtnLimpiarCampos.Click += new System.EventHandler(this.BtnLimpiarCampos_Click);
             // 
+            // labelEstado
+            // 
+            this.labelEstado.AutoSize = true;
+            this.labelEstado.Location = new System.Drawing.Point(10, 147);
+            this.labelEstado.Name = "labelEstado";
+            this.labelEstado.Size = new System.Drawing.Size(51, 17);
+            this.labelEstado.TabIndex = 34;
+            this.labelEstado.Text = "estado";
+            this.labelEstado.Visible = false;
+            // 
             // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -577,5 +589,6 @@ namespace _Presentación
         private System.Windows.Forms.TextBox txtnombreplanotro;
         private System.Windows.Forms.TextBox txtvalorplanotro;
         private System.Windows.Forms.Button BtnLimpiarCampos;
+        private System.Windows.Forms.Label labelEstado;
     }
 }

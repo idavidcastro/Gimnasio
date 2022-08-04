@@ -18,6 +18,7 @@ namespace Entidad
         public string Direccion { get; set; }
         public Plan PlanCliente { get; set; }
         public string FechaIngreso { get; set; }
+        public string Estado { get; set; }
 
     }
 }
