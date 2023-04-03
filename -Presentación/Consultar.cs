@@ -16,6 +16,17 @@ namespace _Presentación
     {
         ClienteService clienteService;
         List<Cliente> clientes;
+
+
+        private void AbrirFormHijo(object Formhijo)
+        {
+           
+            Form fh = Formhijo as Form;
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            
+            fh.Show();
+        }
         public Consultar()
         {
             InitializeComponent();
@@ -59,7 +70,40 @@ namespace _Presentación
 
         private void dataConsulta_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            Historial BTNHISTORIAL = new Historial();
+            BTNHISTORIAL.Show();
+         /*   DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            btn.HeaderText = "HISTORIAL";
+            btn.Name = "button";
+            btn.Text = "Ver Historial";
+                btn.UseColumnTextForButtonValue = true;
+            dataConsulta.Columns.Add(BTNHISTORIAL); */
+  
+
+         
+
 
         }
-    }
-}
+
+        private void Historial(object sender, DataGridViewCellEventArgs e)
+        {
+
+           AbrirFormHijo(new Historial());
+        }
+
+        private void Historial(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            AbrirFormHijo(new Historial());
+        }
+
+        private void dataConsulta_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+        }
+

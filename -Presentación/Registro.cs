@@ -16,10 +16,16 @@ namespace _Presentación
 
     public partial class Registro : Form
     {
+        Historial   historiall;
         Cliente cliente;
         Plan plan;
         ClienteService clienteService;
         List<Cliente> clientes;
+   
+        HistorialServices historialServices;
+
+      
+
         public Registro()
         {
             InitializeComponent();
@@ -131,7 +137,7 @@ namespace _Presentación
                cmbplan.Text = "";
             }
             */
-            
+
             plan = new Plan()
             {
                 CodigoPlan=txtcodigoplan.Text,
@@ -151,6 +157,17 @@ namespace _Presentación
 
             cliente.FechaIngreso = lblfecha.Text;
             cliente.Estado = "Activo";
+
+
+   historiall = new Historial();
+            historiall.Identificacion = txtidentificacion.Text;
+           historiall.Nombre = txtnombre.Text;
+            historiall.Apellido = txtapellido.Text;
+          historiall.PlanCliente = plan;
+
+           historiall.FechaIngreso = lblfecha.Text;
+
+
             /*
             cliente = new Cliente
             {
@@ -169,6 +186,9 @@ namespace _Presentación
             MessageBox.Show(mensaje, "Guardar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
             CargarListado();
             LimpiarCampos();
+     
+     
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -301,6 +321,11 @@ namespace _Presentación
 
             CargarListado();
             LimpiarCampos();
+        }
+
+        private void labelEstado_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
