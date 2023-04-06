@@ -16,21 +16,19 @@ namespace _Presentación
 
     public partial class Registro : Form
     {
-        Historial   historiall;
+        Historial historial;
         Cliente cliente;
         Plan plan;
         ClienteService clienteService;
+        HistorialServices historialServices;
         List<Cliente> clientes;
    
-        HistorialServices historialServices;
-
-      
-
         public Registro()
         {
             InitializeComponent();
             MostrarPlanes();
             clienteService = new ClienteService(ConfigConnectionString.Cadena);
+            historialServices = new HistorialServices(ConfigConnectionString.Cadena);
             CargarListado();
             txtnombre.Focus();
 
@@ -159,15 +157,10 @@ namespace _Presentación
             cliente.Estado = "Activo";
 
 
-   historiall = new Historial();
-            historiall.Identificacion = txtidentificacion.Text;
-           historiall.Nombre = txtnombre.Text;
-            historiall.Apellido = txtapellido.Text;
-          historiall.PlanCliente = plan;
-
-           historiall.FechaIngreso = lblfecha.Text;
-
-
+            historial = new Historial();
+            historial.Cliente = cliente;
+            historial.PlanCliente = plan;
+            
             /*
             cliente = new Cliente
             {
@@ -184,6 +177,11 @@ namespace _Presentación
             */
             string mensaje = clienteService.GuardarCliente(cliente);
             MessageBox.Show(mensaje, "Guardar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            string mensajee = historialServices.GuardarHistorial(historial);
+            MessageBox.Show(mensajee, "Guardar historial", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
             CargarListado();
             LimpiarCampos();
      

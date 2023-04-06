@@ -22,15 +22,16 @@ namespace Datos
         {
             using (var command = _connection.CreateCommand())
             {
-                command.CommandText = "insert into Historial(Identificacion,Nombre,Apellido,Plann,ValorPlan,Fecha)" +
-                              " values (@Identificacion, @Nombre, @Apellido,@Plann,@ValorPlan, @Fecha)";
-                command.Parameters.Add(new SqlParameter("@Identificacion", historial.Identificacion));
-                command.Parameters.Add(new SqlParameter("@Nombre", historial.Nombre));
-                command.Parameters.Add(new SqlParameter("@Apellido",historial.Apellido));
-               
+                command.CommandText = "insert into Historial(Identificacion,Nombre,Apellido,CodPlan,Plann,ValorPlan,Fecha)" +
+                              " values (@Identificacion, @Nombre, @Apellido,@CodPlan,@Plann,@ValorPlan, @Fecha)";
+                command.Parameters.Add(new SqlParameter("@Identificacion", historial.Cliente.Identificacion));
+                command.Parameters.Add(new SqlParameter("@Nombre", historial.Cliente.Nombre));
+                command.Parameters.Add(new SqlParameter("@Apellido",historial.Cliente.Apellido));
+                
+                command.Parameters.Add(new SqlParameter("@CodPlan", historial.PlanCliente.CodigoPlan));
                 command.Parameters.Add(new SqlParameter("@Plann", historial.PlanCliente.NombrePlan));
                 command.Parameters.Add(new SqlParameter("@ValorPlan", historial.PlanCliente.ValorPlan));
-                command.Parameters.Add(new SqlParameter("@Fecha", historial.FechaIngreso));
+                command.Parameters.Add(new SqlParameter("@Fecha", historial.Cliente.FechaIngreso));
               
                 command.ExecuteNonQuery();
 
@@ -51,18 +52,21 @@ namespace Datos
                     {
                        Historial historial  = new Historial
                         {
-                            Identificacion = reader.GetString(0),
-                            Nombre = reader.GetString(1),
-                            Apellido = reader.GetString(2),
+                            Cliente = new Cliente
+                            {
+                                Identificacion = reader.GetString(0),
+                                Nombre=reader.GetString(1),
+                                Apellido=reader.GetString(2),
+                                FechaIngreso=reader.GetString(6)                     
+                            },
+                           
                            
                             PlanCliente = new Plan
                             {
-                                CodigoPlan = reader.GetString(7),
-                                NombrePlan = reader.GetString(8),
-                                ValorPlan = decimal.Parse(reader.GetString(9))
-                            },
-                            FechaIngreso = reader.GetString(10),
-                           
+                                CodigoPlan = reader.GetString(3),
+                                NombrePlan = reader.GetString(4),
+                                ValorPlan = decimal.Parse(reader.GetString(5))
+                            },    
                         };
 
                         return historial;
@@ -72,6 +76,7 @@ namespace Datos
             }
             return null;
         }
+        /*
         public List<Historial> ConsultarHistorial(string identificacion)
         {
             List<Historial> historial = new List<Historial>();
@@ -105,6 +110,7 @@ namespace Datos
 
             return historial;
         }
+        */
 
 
 
