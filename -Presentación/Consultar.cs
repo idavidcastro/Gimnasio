@@ -81,7 +81,7 @@ namespace _Presentación
 
             // Cargar el historial del cliente ingresado en el DataGridView
 
-            ; // Valor ingresado en la caja de texto de identificación del cliente
+             // Valor ingresado en la caja de texto de identificación del cliente
 
 
             ConsultaReponseCliente respuesta;
@@ -96,7 +96,7 @@ namespace _Presentación
             {
                 dataConsulta.DataSource = respuesta.Clientes;
             }
-            txtidConsulta.Text = "";
+         
         }
 
         private void dataConsulta_CellContentClick(object sender, DataGridViewCellEventArgs e, Historial bTNHISTORIAL)
@@ -148,7 +148,7 @@ namespace _Presentación
             {
                 historial.dataHistorial.DataSource = respuesta.Historiales;
             }
-            txtidConsulta.Text = "";
+       
 
             
 

@@ -22,14 +22,14 @@ namespace Datos
         {
             using (var command = _connection.CreateCommand())
             {
-                command.CommandText = "insert into Historial(Identificacion,Nombre,Apellido,CodPlan,Plann,ValorPlan,Fecha)" +
-                              " values (@Identificacion, @Nombre, @Apellido,@CodPlan,@Plann,@ValorPlan, @Fecha)";
-                command.Parameters.Add(new SqlParameter("@Identificacion", historial.Cliente.Identificacion));
-                command.Parameters.Add(new SqlParameter("@Nombre", historial.Cliente.Nombre));
-                command.Parameters.Add(new SqlParameter("@Apellido",historial.Cliente.Apellido));
-                command.Parameters.Add(new SqlParameter("@Plann", historial.PlanCliente.NombrePlan));
+                command.CommandText = "insert into Historial(Identificacion,Nombre,Apellido,Plann,ValorPlan ,Fecha)" +
+                              " values (@Identificacion, @Nombre, @Apellido,@Plann,@ValorPlan,  @Fecha)";
+                command.Parameters.Add(new SqlParameter("@Identificacion", historial.Identificacion));
+                command.Parameters.Add(new SqlParameter("@Nombre", historial.Nombre));
+                command.Parameters.Add(new SqlParameter("@Apellido",historial.Apellido));
+                command.Parameters.Add(new SqlParameter("@Plann", historial.Plann));
        
-                command.Parameters.Add(new SqlParameter("@Fecha", historial.Cliente.FechaIngreso));
+                command.Parameters.Add(new SqlParameter("@Fecha", historial.FechaNuevoPago));
               
                 command.ExecuteNonQuery();
 
@@ -50,22 +50,19 @@ namespace Datos
                     {
                        Historial historial  = new Historial
                         {
-                            Cliente = new Cliente
-                            {
-                                Identificacion = reader.GetString(0),
-                                Nombre=reader.GetString(1),
-                                Apellido=reader.GetString(2),
-                                FechaIngreso=reader.GetString(6)                     
-                            },
-                           
-                           
-                            PlanCliente = new Plan
-                            {
 
-                                NombrePlan = reader.GetString(4),
-                            
-                            },    
-                        };
+                           Identificacion = reader.GetString(0),
+                           Nombre = reader.GetString(1),
+                           Apellido = reader.GetString(2),
+                           Plann = reader.GetString(3),
+                           ValorPlan = reader.GetString(4),
+
+                           FechaNuevoPago = reader.GetString(4),
+
+
+
+
+                       };
 
                         return historial;
                     }
@@ -80,7 +77,7 @@ namespace Datos
             List<Historial> historiales = new List<Historial>();
             using (var command = _connection.CreateCommand())
             {
-                command.CommandText = "select * from Cliente where Identificacion=@Identificacion";
+                command.CommandText = "select * from Historial where Identificacion=@Identificacion";
                 command.Parameters.Add(new SqlParameter("@Identificacion", identificacion));
                 var reader = command.ExecuteReader();
                 while (reader.Read())
@@ -89,18 +86,13 @@ namespace Datos
                     {
                        
                         
-                        PlanCliente = new Plan
-                        {
-                          
-                            NombrePlan = reader.GetString(3),
-                         
-                        },
-                        Cliente= new Cliente
-                        {
+                     
                             Identificacion= reader.GetString(0),    
                             Nombre= reader.GetString(1),    
-                            Apellido = reader.GetString(2), 
-                        },
+                            Apellido = reader.GetString(2),
+                            Plann = reader.GetString(3),
+                      ValorPlan = reader.GetString(4),
+
                         FechaNuevoPago = reader.GetString(5),
                        
                     };

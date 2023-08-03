@@ -8,12 +8,19 @@ using System.Threading.Tasks;
 
 namespace Entidad
 {
-   public class Historial
+    public class Historial
     {
 
-        public Plan PlanCliente { get; set; }
-        public Cliente Cliente { get; set; }
 
-        public String FechaNuevoPago { get; set; }                 
+        public String Identificacion { get; set; }
+        public String Nombre { get; set; }
+        public String Apellido{ get; set; }
+        public String Plann { get; set; }
+        public String ValorPlan { get; set; }
+        public String FechaNuevoPago { get; set; }
+       /* public override string ToString()
+        {
+            return Cliente.Identificacion.ToString();
+        }*/
     }
 }

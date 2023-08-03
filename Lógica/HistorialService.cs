@@ -19,7 +19,7 @@ namespace Lógica
 
         }
 
-        
+
 
         public string GuardarHistorial(Historial historial)
         {
@@ -27,14 +27,14 @@ namespace Lógica
             {
                 connectionManager.Open();
 
-                if (historialrepository.BuscarHistorialPorIdentificacion(historial.Cliente.Identificacion) == null)
+                if (historialrepository.BuscarHistorialPorIdentificacion(historial.Identificacion) == null)
                 {
                     historialrepository.GuardarHistorialRep(historial);
                     return "El nuevo Historial ha sido registrado correctamente!";
                 }
                 else
                 {
-                    return $"El Historial con la identificacion {historial.Cliente.Identificacion}, ya se encuentra registrado";
+                    return $"El Historial con la identificacion {historial.Identificacion}, ya se encuentra registrado";
                 }
             }
             catch (Exception exception)
@@ -53,7 +53,7 @@ namespace Lógica
             return identificacion;
         }
 
-       
+
         public ConsultaReponseHistorial ConsultarHistorial(string identificacion)
         {
             try

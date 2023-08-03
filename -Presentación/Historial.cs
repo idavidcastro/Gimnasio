@@ -90,7 +90,7 @@ namespace _Presentación
 
         private void dataHistorial_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
     }
 }
