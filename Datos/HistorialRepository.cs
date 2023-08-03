@@ -27,10 +27,8 @@ namespace Datos
                 command.Parameters.Add(new SqlParameter("@Identificacion", historial.Cliente.Identificacion));
                 command.Parameters.Add(new SqlParameter("@Nombre", historial.Cliente.Nombre));
                 command.Parameters.Add(new SqlParameter("@Apellido",historial.Cliente.Apellido));
-                
-                command.Parameters.Add(new SqlParameter("@CodPlan", historial.PlanCliente.CodigoPlan));
                 command.Parameters.Add(new SqlParameter("@Plann", historial.PlanCliente.NombrePlan));
-                command.Parameters.Add(new SqlParameter("@ValorPlan", historial.PlanCliente.ValorPlan));
+       
                 command.Parameters.Add(new SqlParameter("@Fecha", historial.Cliente.FechaIngreso));
               
                 command.ExecuteNonQuery();
@@ -63,9 +61,9 @@ namespace Datos
                            
                             PlanCliente = new Plan
                             {
-                                CodigoPlan = reader.GetString(3),
+
                                 NombrePlan = reader.GetString(4),
-                                ValorPlan = decimal.Parse(reader.GetString(5))
+                            
                             },    
                         };
 
@@ -76,10 +74,10 @@ namespace Datos
             }
             return null;
         }
-        /*
+        
         public List<Historial> ConsultarHistorial(string identificacion)
         {
-            List<Historial> historial = new List<Historial>();
+            List<Historial> historiales = new List<Historial>();
             using (var command = _connection.CreateCommand())
             {
                 command.CommandText = "select * from Cliente where Identificacion=@Identificacion";
@@ -87,30 +85,34 @@ namespace Datos
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    Historial historiall = new Historial
+                    Historial historial = new Historial
                     {
-                        Identificacion = reader.GetString(0),
-                        Nombre = reader.GetString(1),
-                        Apellido = reader.GetString(2),
+                       
                         
                         PlanCliente = new Plan
                         {
-                            CodigoPlan = reader.GetString(3),
-                            NombrePlan = reader.GetString(4),
-                            ValorPlan = decimal.Parse(reader.GetString(5))
+                          
+                            NombrePlan = reader.GetString(3),
+                         
                         },
-                        FechaIngreso = reader.GetString(6),
+                        Cliente= new Cliente
+                        {
+                            Identificacion= reader.GetString(0),    
+                            Nombre= reader.GetString(1),    
+                            Apellido = reader.GetString(2), 
+                        },
+                        FechaNuevoPago = reader.GetString(5),
                        
                     };
 
-                    historial.Add(historiall);
+                    historiales.Add(historial);
                 }
                 reader.Close();
             }
 
-            return historial;
+            return historiales;
         }
-        */
+        
 
 
 

@@ -30,14 +30,14 @@ namespace _Presentación
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Consultar));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.IDENTIFICACION = new System.Windows.Forms.Label();
             this.txtidConsulta = new System.Windows.Forms.TextBox();
             this.pictureBox7777 = new System.Windows.Forms.PictureBox();
             this.dataConsulta = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BTNHISTORIAL = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7777)).BeginInit();
@@ -94,14 +94,14 @@ namespace _Presentación
             this.dataConsulta.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.dataConsulta.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataConsulta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataConsulta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataConsulta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataConsulta.EnableHeadersVisualStyles = false;
             this.dataConsulta.GridColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -110,27 +110,30 @@ namespace _Presentación
             this.dataConsulta.Name = "dataConsulta";
             this.dataConsulta.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataConsulta.RowHeadersWidth = 51;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            this.dataConsulta.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            this.dataConsulta.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataConsulta.RowTemplate.Height = 24;
             this.dataConsulta.Size = new System.Drawing.Size(986, 158);
             this.dataConsulta.TabIndex = 7;
+            this.dataConsulta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataConsulta_CellClick);
+
             this.dataConsulta.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Historial);
+            this.dataConsulta.SelectionChanged += new System.EventHandler(this.dataConsulta_SelectionChanged);
             this.dataConsulta.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dataConsulta_MouseMove);
             // 
-            // button1
+            // BTNHISTORIAL
             // 
-            this.button1.BackColor = System.Drawing.Color.MediumBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(776, 438);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 43);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "VER HISTORIAL";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BTNHISTORIAL.BackColor = System.Drawing.Color.MediumBlue;
+            this.BTNHISTORIAL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNHISTORIAL.Location = new System.Drawing.Point(776, 438);
+            this.BTNHISTORIAL.Name = "BTNHISTORIAL";
+            this.BTNHISTORIAL.Size = new System.Drawing.Size(113, 43);
+            this.BTNHISTORIAL.TabIndex = 8;
+            this.BTNHISTORIAL.Text = "VER HISTORIAL";
+            this.BTNHISTORIAL.UseVisualStyleBackColor = false;
+            this.BTNHISTORIAL.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -154,6 +157,7 @@ namespace _Presentación
             this.button3.TabIndex = 10;
             this.button3.Text = "NUEVO PAGO";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Consultar
             // 
@@ -164,7 +168,7 @@ namespace _Presentación
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataConsulta);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BTNHISTORIAL);
             this.Controls.Add(this.pictureBox7777);
             this.Controls.Add(this.txtidConsulta);
             this.Controls.Add(this.IDENTIFICACION);
@@ -187,7 +191,7 @@ namespace _Presentación
         private System.Windows.Forms.Label IDENTIFICACION;
         private System.Windows.Forms.TextBox txtidConsulta;
         private System.Windows.Forms.PictureBox pictureBox7777;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BTNHISTORIAL;
         private System.Windows.Forms.Button button2;
         public System.Windows.Forms.DataGridView dataConsulta;
         private System.Windows.Forms.Button button3;

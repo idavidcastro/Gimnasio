@@ -13,5 +13,7 @@ namespace Entidad
 
         public Plan PlanCliente { get; set; }
         public Cliente Cliente { get; set; }
+
+        public String FechaNuevoPago { get; set; }                 
     }
 }

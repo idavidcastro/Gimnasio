@@ -3,23 +3,24 @@ using Entidad;
 using System;
 
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lógica
 {
     public class HistorialServices
     {
-         HistorialRepository historialrepository; 
+        HistorialRepository historialrepository;
         ConnectionManager connectionManager;
-        //List<Cliente> clientes;
+        private object identificacion;
+
         public HistorialServices(string connectionstring)
         {
             connectionManager = new ConnectionManager(connectionstring);
             historialrepository = new HistorialRepository(connectionManager.Connetion);
 
         }
+
+        
+
         public string GuardarHistorial(Historial historial)
         {
             try
@@ -28,7 +29,7 @@ namespace Lógica
 
                 if (historialrepository.BuscarHistorialPorIdentificacion(historial.Cliente.Identificacion) == null)
                 {
-                   historialrepository.GuardarHistorialRep(historial);
+                    historialrepository.GuardarHistorialRep(historial);
                     return "El nuevo Historial ha sido registrado correctamente!";
                 }
                 else
@@ -47,6 +48,55 @@ namespace Lógica
 
         }
 
+        public object GetIdentificacion()
+        {
+            return identificacion;
+        }
+
+       
+        public ConsultaReponseHistorial ConsultarHistorial(string identificacion)
+        {
+            try
+            {
+                connectionManager.Open();
+
+                return new ConsultaReponseHistorial(historialrepository.ConsultarHistorial(identificacion));
+            }
+            catch (Exception exception)
+            {
+                return new ConsultaReponseHistorial("Se presentó el siguiente error: " + exception.Message);
+            }
+            finally
+            {
+                connectionManager.Close();
+            }
+        }
+
+
+
+        public class ConsultaReponseHistorial
+        {
+            public List<Historial> Historiales { get; set; }
+            public string Mensaje { get; set; }
+            public bool Error { get; set; }
+
+            public ConsultaReponseHistorial(List<Historial> historial)
+            {
+                Historiales = historial;
+                Error = false;
+            }
+
+            public ConsultaReponseHistorial(string mensaje)
+            {
+                Mensaje = mensaje;
+                Error = true;
+            }
+
         }
     }
+
+}
+
+
+
 

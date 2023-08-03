@@ -117,6 +117,7 @@ namespace _Presentación
             this.logohombre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logohombre.TabIndex = 7;
             this.logohombre.TabStop = false;
+            this.logohombre.Click += new System.EventHandler(this.logohombre_Click);
             // 
             // logomujer
             // 

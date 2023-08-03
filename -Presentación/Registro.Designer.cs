@@ -29,9 +29,9 @@ namespace _Presentación
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registro));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,7 +42,6 @@ namespace _Presentación
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.txtapellido = new System.Windows.Forms.TextBox();
@@ -58,6 +57,7 @@ namespace _Presentación
             this.calendario = new System.Windows.Forms.MonthCalendar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelEstado = new System.Windows.Forms.Label();
             this.txtcodigoplanotro = new System.Windows.Forms.TextBox();
             this.txtnombreplanotro = new System.Windows.Forms.TextBox();
             this.txtvalorplanotro = new System.Windows.Forms.TextBox();
@@ -68,7 +68,6 @@ namespace _Presentación
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.BtnLimpiarCampos = new System.Windows.Forms.Button();
-            this.labelEstado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataRegistro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -174,17 +173,6 @@ namespace _Presentación
             this.label9.TabIndex = 8;
             this.label9.Text = "PLAN";
             // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.rectangleShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(1386, 700);
-            this.shapeContainer1.TabIndex = 9;
-            this.shapeContainer1.TabStop = false;
-            // 
             // rectangleShape1
             // 
             this.rectangleShape1.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -268,36 +256,36 @@ namespace _Presentación
             this.dataRegistro.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dataRegistro.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataRegistro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataRegistro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataRegistro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataRegistro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataRegistro.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataRegistro.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataRegistro.EnableHeadersVisualStyles = false;
             this.dataRegistro.GridColor = System.Drawing.Color.Navy;
             this.dataRegistro.Location = new System.Drawing.Point(35, 420);
             this.dataRegistro.Name = "dataRegistro";
             this.dataRegistro.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataRegistro.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataRegistro.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataRegistro.RowHeadersWidth = 51;
             this.dataRegistro.Size = new System.Drawing.Size(962, 131);
             this.dataRegistro.TabIndex = 20;
@@ -381,11 +369,24 @@ namespace _Presentación
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(942, 304);
             this.panel1.TabIndex = 25;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // labelEstado
+            // 
+            this.labelEstado.AutoSize = true;
+            this.labelEstado.Location = new System.Drawing.Point(8, 119);
+            this.labelEstado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEstado.Name = "labelEstado";
+            this.labelEstado.Size = new System.Drawing.Size(39, 13);
+            this.labelEstado.TabIndex = 34;
+            this.labelEstado.Text = "estado";
+            this.labelEstado.Visible = false;
+            this.labelEstado.Click += new System.EventHandler(this.labelEstado_Click);
             // 
             // txtcodigoplanotro
             // 
             this.txtcodigoplanotro.Location = new System.Drawing.Point(10, 63);
-            this.txtcodigoplanotro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtcodigoplanotro.Margin = new System.Windows.Forms.Padding(2);
             this.txtcodigoplanotro.Multiline = true;
             this.txtcodigoplanotro.Name = "txtcodigoplanotro";
             this.txtcodigoplanotro.Size = new System.Drawing.Size(18, 26);
@@ -395,7 +396,7 @@ namespace _Presentación
             // txtnombreplanotro
             // 
             this.txtnombreplanotro.Location = new System.Drawing.Point(10, 63);
-            this.txtnombreplanotro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtnombreplanotro.Margin = new System.Windows.Forms.Padding(2);
             this.txtnombreplanotro.Multiline = true;
             this.txtnombreplanotro.Name = "txtnombreplanotro";
             this.txtnombreplanotro.Size = new System.Drawing.Size(18, 26);
@@ -405,7 +406,7 @@ namespace _Presentación
             // txtvalorplanotro
             // 
             this.txtvalorplanotro.Location = new System.Drawing.Point(10, 63);
-            this.txtvalorplanotro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtvalorplanotro.Margin = new System.Windows.Forms.Padding(2);
             this.txtvalorplanotro.Multiline = true;
             this.txtvalorplanotro.Name = "txtvalorplanotro";
             this.txtvalorplanotro.Size = new System.Drawing.Size(18, 26);
@@ -415,7 +416,7 @@ namespace _Presentación
             // txtvalorplan
             // 
             this.txtvalorplan.Location = new System.Drawing.Point(10, 11);
-            this.txtvalorplan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtvalorplan.Margin = new System.Windows.Forms.Padding(2);
             this.txtvalorplan.Multiline = true;
             this.txtvalorplan.Name = "txtvalorplan";
             this.txtvalorplan.Size = new System.Drawing.Size(18, 26);
@@ -425,7 +426,7 @@ namespace _Presentación
             // txtnombreplan
             // 
             this.txtnombreplan.Location = new System.Drawing.Point(10, 11);
-            this.txtnombreplan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtnombreplan.Margin = new System.Windows.Forms.Padding(2);
             this.txtnombreplan.Multiline = true;
             this.txtnombreplan.Name = "txtnombreplan";
             this.txtnombreplan.Size = new System.Drawing.Size(18, 26);
@@ -435,7 +436,7 @@ namespace _Presentación
             // txtcodigoplan
             // 
             this.txtcodigoplan.Location = new System.Drawing.Point(10, 11);
-            this.txtcodigoplan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtcodigoplan.Margin = new System.Windows.Forms.Padding(2);
             this.txtcodigoplan.Multiline = true;
             this.txtcodigoplan.Name = "txtcodigoplan";
             this.txtcodigoplan.Size = new System.Drawing.Size(18, 26);
@@ -493,18 +494,6 @@ namespace _Presentación
             this.BtnLimpiarCampos.UseVisualStyleBackColor = false;
             this.BtnLimpiarCampos.Click += new System.EventHandler(this.BtnLimpiarCampos_Click);
             // 
-            // labelEstado
-            // 
-            this.labelEstado.AutoSize = true;
-            this.labelEstado.Location = new System.Drawing.Point(8, 119);
-            this.labelEstado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelEstado.Name = "labelEstado";
-            this.labelEstado.Size = new System.Drawing.Size(39, 13);
-            this.labelEstado.TabIndex = 34;
-            this.labelEstado.Text = "estado";
-            this.labelEstado.Visible = false;
-            this.labelEstado.Click += new System.EventHandler(this.labelEstado_Click);
-            // 
             // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -518,7 +507,6 @@ namespace _Presentación
             this.Controls.Add(this.dataRegistro);
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.shapeContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Registro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

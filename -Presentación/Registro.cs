@@ -2,13 +2,7 @@
 using Lógica;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _Presentación
@@ -22,7 +16,7 @@ namespace _Presentación
         ClienteService clienteService;
         HistorialServices historialServices;
         List<Cliente> clientes;
-   
+
         public Registro()
         {
             InitializeComponent();
@@ -38,13 +32,13 @@ namespace _Presentación
 
             clientes = new List<Cliente>();
             clientes = clienteService.ConsultarListClientes();
-            
+
             dataRegistro.DataSource = clientes;
 
             //dataRegistro.CurrentRow.Cells[8].Value.ToString();
 
         }
-        
+
         private void LimpiarCampos()
         {
             txtnombre.Text = "";
@@ -57,7 +51,7 @@ namespace _Presentación
             cmbplan.Text = "";
             lblfecha.Text = "";
         }
-        
+
         private void MostrarPlanes()
         {
             SqlConnection cn = new SqlConnection(ConfigConnectionString.Cadena);
@@ -138,11 +132,11 @@ namespace _Presentación
 
             plan = new Plan()
             {
-                CodigoPlan=txtcodigoplan.Text,
-                NombrePlan=txtnombreplan.Text,
-                ValorPlan=decimal.Parse(txtvalorplan.Text)
+                CodigoPlan = txtcodigoplan.Text,
+                NombrePlan = txtnombreplan.Text,
+                ValorPlan = decimal.Parse(txtvalorplan.Text)
             };
-            
+
             cliente = new Cliente();
             cliente.Identificacion = txtidentificacion.Text;
             cliente.Nombre = txtnombre.Text;
@@ -157,10 +151,8 @@ namespace _Presentación
             cliente.Estado = "Activo";
 
 
-            historial = new Historial();
-            historial.Cliente = cliente;
-            historial.PlanCliente = plan;
-            
+
+
             /*
             cliente = new Cliente
             {
@@ -178,14 +170,12 @@ namespace _Presentación
             string mensaje = clienteService.GuardarCliente(cliente);
             MessageBox.Show(mensaje, "Guardar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            string mensajee = historialServices.GuardarHistorial(historial);
-            MessageBox.Show(mensajee, "Guardar historial", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
             CargarListado();
             LimpiarCampos();
-     
-     
+
+
 
         }
 
@@ -215,7 +205,7 @@ namespace _Presentación
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -250,12 +240,12 @@ namespace _Presentación
             txtapellido.Text = dataRegistro.CurrentRow.Cells[1].Value.ToString();
             txtidentificacion.Text = dataRegistro.CurrentRow.Cells[2].Value.ToString();
             txtedad.Text = dataRegistro.CurrentRow.Cells[3].Value.ToString();
-            txttelefono.Text= dataRegistro.CurrentRow.Cells[4].Value.ToString();
+            txttelefono.Text = dataRegistro.CurrentRow.Cells[4].Value.ToString();
             cmbsexo.Text = dataRegistro.CurrentRow.Cells[5].Value.ToString();
             txtdireccion.Text = dataRegistro.CurrentRow.Cells[6].Value.ToString();
             cmbplan.Text = dataRegistro.CurrentRow.Cells[7].Value.ToString();
             lblfecha.Text = dataRegistro.CurrentRow.Cells[8].Value.ToString();
-            labelEstado.Text= dataRegistro.CurrentRow.Cells[9].Value.ToString();
+            labelEstado.Text = dataRegistro.CurrentRow.Cells[9].Value.ToString();
 
             SqlConnection cn = new SqlConnection(ConfigConnectionString.Cadena);
             cn.Open();
@@ -266,7 +256,7 @@ namespace _Presentación
             {
                 txtcodigoplanotro.Text = reader["CodigoPlan"].ToString();
                 txtnombreplanotro.Text = reader["Nombre"].ToString();
-                txtvalorplanotro.Text = reader["Valor"].ToString();              
+                txtvalorplanotro.Text = reader["Valor"].ToString();
 
             }
             cn.Close();
@@ -297,12 +287,12 @@ namespace _Presentación
             cliente.PlanCliente = plan;
             cliente.FechaIngreso = lblfecha.Text;
             cliente.Estado = labelEstado.Text;
-            
+
 
             string mensaje = clienteService.ModificarCliente(cliente, txtidentificacion.Text);
             MessageBox.Show(mensaje, "Modificar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
             CargarListado();
-            
+
         }
 
         private void BtnLimpiarCampos_Click(object sender, EventArgs e)
@@ -322,6 +312,11 @@ namespace _Presentación
         }
 
         private void labelEstado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

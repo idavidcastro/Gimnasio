@@ -24,5 +24,10 @@ namespace Datos
         {
             Connetion.Close();
         }
+
+        public SqlConnection GetConnection()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -114,5 +114,10 @@ namespace _Presentación
         {
 
         }
+
+        private void logohombre_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
